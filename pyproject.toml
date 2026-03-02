@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "nerjaveika"
+version = "0.1.0"
+description = ""
+authors = ["Mika7o7 <mikaohanyan881@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^6.0.2"
+pillow = "^12.1.1"
+requests = "^2.32.5"
+pytz = "^2025.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

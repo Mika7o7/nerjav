@@ -1,0 +1,1121 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NerjaRest - НержаСтиль</title>
+    <base href="" />
+    <meta name="description" content="My Store" />
+    <script src="{% static 'catalog/view/javascript/jquery/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery.countdown.js' %}"></script>
+    <link href="{% static 'catalog/view/javascript/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static 'catalog/view/theme/Mydecor/stylesheet/stylesheet.css' %}" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Jost:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/javascript/jquery/magnific/magnific-popup.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/lightbox.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/carousel.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/custom.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/animate.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/category-list.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/newsletter.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/megamenu.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.transitions.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'catalog/view/javascript/jquery/swiper/css/swiper.min.css' %}" type="text/css"
+        rel="stylesheet" media="screen" />
+    <link href="{% static 'catalog/view/javascript/jquery/swiper/css/opencart.css' %}" type="text/css" rel="stylesheet"
+        media="screen" />
+    <link href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.css' %}" type="text/css"
+        rel="stylesheet" media="screen" />
+    <link href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.transitions.css' %}" type="text/css"
+        rel="stylesheet" media="screen" />
+    <script src="{% static 'catalog/view/javascript/jquery/swiper/js/swiper.jquery.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.bpopup.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.cookie.js' %}"></script>
+    <link href="{% static 'image/catalog/photo_2025-08-23_23-15-13.jpg' %}" rel="icon" />
+    <!-- webdigify www.templatemela.com - Start -->
+    <script src="{% static 'catalog/view/javascript/webdigify/custom.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/parallax.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jstree.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/carousel.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/webdigify.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.custom.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.formalize.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.elevatezoom.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/bootstrap-notify.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/tabs.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.hoverdir.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/modernizr.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/lightbox/lightbox-2.6.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/inview.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/megamenu.js' %}"></script>
+
+
+    <!-- ======= Quick view JS ========= -->
+    <script>
+
+        function quickbox() {
+            if ($(window).width() > 767) {
+                $('.quickview-button').magnificPopup({
+                    type: 'iframe',
+                    delegate: 'a',
+                    preloader: true,
+                    tLoading: 'Loading image #%curr%...',
+                });
+            }
+        }
+        jQuery(document).ready(function () { quickbox(); });
+        jQuery(window).resize(function () { quickbox(); });
+
+        $(document).ready(function () {
+            $('.category_list ul').owlCarousel({
+                items: 5,
+                autoPlay: false,
+                singleItem: false,
+                navigation: true,
+                navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                pagination: false,
+                itemsDesktop: [1459, 5],
+                itemsDesktopSmall: [1199, 4],
+                itemsTablet: [650, 3],
+                itemsTabletSmall: [479, 2],
+                itemsMobile: [379, 2]
+            });
+        });
+    </script>
+
+    <!-- webdigify www.templatemela.com - End -->
+
+    <script src="catalog/view/javascript/common.js"></script>
+
+</head>
+
+
+<body class="product-category-20_80   layout-2 left-col">
+    <header>
+        <nav class="header_nav">
+            <div class="container">
+                <div class="row">
+                    <div class="left-nav">
+                        <aside id="header-nav-left">
+    
+    
+                        </aside>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </nav>
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 header-logo">
+                        <div id="logo"><a href="{% url 'home' %}"><img src="{% static 'image/catalog/logo.png' %}"
+                                    title="NerjaRest - Furniture Store" alt="NerjaRest - Furniture Store"
+                                    class="img-responsive" /></a> </div>
+                    </div>
+    
+    
+                    <div class="headertop">
+                        <aside id="header-top">
+                            <div class="main-category-list left-menu">
+                                <div class="cat-menu">
+                                    <div class="WD-panel-heading">
+                                        <!--<i class='material-icons close-icon'>close</i>-->
+                                    </div>
+                                    <div class="wd-menu horizontal-menu wd-menu-bar" id="wd-menu-6130">
+                                        <ul class="ul-top-items">
+                                            {% for category in header_categories %}
+                                            <li class="li-top-item mega-menu wd-sub-menu">
+                                                <span>{{ category.name }}</span>
+    
+                                                <!-- Mega Menu с подкатегориями -->
+                                                {% if category.subcategories.exists %}
+                                                <div class="mega-menu-container product-thumb sub-menu-container">
+                                                    <div class="container">
+                                                        {% for subcategory in category.subcategories.all %}
+                                                        <div class="col-sm-4 sub-item2-content" data-cols="4">
+                                                            <div class="sub-cate-img"></div>
+                                                            <a class="a-mega-second-link"
+                                                                href="{% url 'subcategory_detail' category.slug subcategory.slug %}">
+                                                                <h4><strong>{{ subcategory.name }}</strong></h4>
+                                                            </a>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+    
+    
+                        </aside>
+    
+                    </div>
+                    <!-- <div id="_desktop_contact_link"></div> -->
+    
+                    <div class="nav2">
+    
+                        <div class="col-sm-3 header_cart">
+                            <div id="cart" class="btn-group btn-block">
+                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..."
+                                    class="btn btn-inverse btn-block btn-lg dropdown-toggle">
+                                    <div class="cart_detail">
+                                        <div class="cart_image"><i class="material-icons-outlined shopping-cart"></i>
+                                        </div>
+    
+                                        <span id="cart-total"><span class="cart_heading">Cart : </span><span
+                                                class="item-count">0</span><span class="mycart">Items</span> <span
+                                                class="price"> $0.00 </span></span>
+    
+    
+                                    </div>
+                                </button>
+    
+                                <ul class="dropdown-menu pull-right cart-menu">
+                                    <li>
+                                        <p class="text-center">Your shopping cart is empty!</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="content-top-breadcum">
+        <div class="container">
+        </div>
+    </div>
+
+
+
+
+    <div id="product-special" class="container">
+        <div class="row">
+            <!-- Левая колонка с категориями -->
+            <aside id="column-left" class="col-sm-3 hidden-xs">
+                <!-- Блок категорий -->
+                <div class="box">
+                    <div class="box-heading">Категории</div>
+                    <div class="box-content">
+                        <ul class="box-category treeview-list treeview">
+                            {% for cat in header_categories %}
+                            <li>
+                                <a href="{% url 'category_detail' cat.slug %}" {% if cat.id == category.id %}class="active"{% endif %}>
+                                    {{ cat.name }} ({{ cat.product_count }})
+                                </a>
+                                {% if cat.subcategories.exists %}
+                                <ul>
+                                    {% for sub in cat.subcategories.all %}
+                                    <li>
+                                        <a href="{% url 'subcategory_detail' cat.slug sub.slug %}"
+                                            {% if sub.id == subcategory.id %}class="active"{% endif %}>
+                                            {{ sub.name }} ({{ sub.product_count }})
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Блок последних товаров -->
+                <div class="box">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="box-heading">Новинки</div>
+                            <div class="box-content">
+                                <div class="box-product productbox-grid" id="latest-grid">
+                                    {% for product in latest_products|slice:":3" %}
+                                    <div class="product-items">
+                                        <div class="product-block product-thumb transition">
+                                            <div class="product-block-inner">
+                                                <div class="image">
+                                                    <a href="{% url 'product_detail' product.slug %}">
+                                                        {% if product.main_image %}
+                                                        <img src="{{ product.main_image.image.url }}" title="{{ product.name }}"
+                                                            alt="{{ product.name }}" class="img-responsive" />
+                                                        {% else %}
+                                                        <img src="{% static 'image/cache/catalog/placeholder-80x80.jpg' %}" title="{{ product.name }}"
+                                                            alt="{{ product.name }}" class="img-responsive" />
+                                                        {% endif %}
+                                                    </a>
+                                
+                                                    <div class="product_hover_block">
+                                                        <div class="action">
+                                                            <button type="button" class="cart_button" onclick="cart.add('{{ product.id }}');"
+                                                                title="В корзину">
+                                                                <i class="fa fa-shopping-cart" area-hidden="true"></i>
+                                                            </button>
+                                                            <div class="quickview-button">
+                                                                <a class="quickbox" title="Быстрый просмотр"
+                                                                    href="{% url 'product_quick_view' product.id %}">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
+                                                            </div>
+                                                            <button class="wishlist" type="button" title="В избранное"
+                                                                onclick="wishlist.add('{{ product.id }}');">
+                                                                <i class="fa fa-heart"></i>
+                                                            </button>
+                                                            <button class="compare_button" type="button" title="Сравнить"
+                                                                onclick="compare.add('{{ product.id }}');">
+                                                                <i class="fa fa-exchange"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-details">
+                                                    <div class="caption">
+                                                        <h4>
+                                                            <a href="{% url 'product_detail' product.slug %}">
+                                                                {{ product.name|truncatechars:30 }}
+                                                            </a>
+                                                        </h4>
+                                                        <p class="price">
+                                                            {{ product.price }} ₽
+                                                            {% if product.tax_price %}
+                                                            <span class="price-tax">Без НДС: {{ product.tax_price }} ₽</span>
+                                                            {% endif %}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Баннер -->
+                <div class="swiper-viewport">
+                    <div id="banner0" class="swiper-container single-banner">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="{% static 'image/cache/catalog/blog2.jpeg' %}" alt="Скидка 15%" class="img-responsive"
+                                        style="width: 100%; max-width: 300px; height: auto; margin: 0 auto;" />
+                                    <div class="left-banner">
+                                        <div class="left-title" style="color: #f8f9fa; background-color: #66666642;">Скидка 15% на разделочные столы</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </aside>
+    
+            <!-- Основной контент справа -->
+            <div id="content" class="col-sm-9">
+                <!-- Хлебные крошки -->
+                <ul class="breadcrumb">
+                    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i></a></li>
+                    <li><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a></li>
+                    <li>{{ subcategory.name }}</li>
+                </ul>
+    
+               
+    
+                <!-- Фильтр и сортировка -->
+                <div class="category_filter">
+                    <div class="col-md-4 btn-list-grid">
+                        <div class="btn-group">
+                            <button type="button" id="grid-view" class="btn btn-default grid" title="Сетка">
+                                <i class="fa fa-th"></i>
+                            </button>
+                            <button type="button" id="list-view" class="btn btn-default list" title="Список">
+                                <i class="fa fa-th-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination-right">
+                        <div class="sort-by-wrapper">
+                            <div class="col-md-2 text-right sort-by">
+                                <label class="control-label" for="input-sort">Сортировка:</label>
+                            </div>
+                            <div class="col-md-3 text-right sort">
+                                <select id="input-sort" class="form-control">
+                                    <option value="default" selected>По умолчанию</option>
+                                    <option value="name_asc">Название (А - Я)</option>
+                                    <option value="name_desc">Название (Я - А)</option>
+                                    <option value="price_asc">Цена (по возрастанию)</option>
+                                    <option value="price_desc">Цена (по убыванию)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="show-wrapper">
+                            <div class="col-md-1 text-right show">
+                                <label class="control-label" for="input-limit">Показать:</label>
+                            </div>
+                            <div class="col-md-2 text-right limit">
+                                <select id="input-limit" class="form-control">
+                                    <option value="12" selected>12</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="75">75</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Список товаров -->
+                <div class="row cat_prod">
+                    {% for product in products %}
+                    <div class="product-layout product-list col-xs-12">
+                        <div class="product-block product-thumb">
+                            <div class="product-block-inner">
+                                <div
+                                    class="image {% if not product.is_in_stock or product.quantity == 0 %}outstock{% endif %}">
+                                    <a href="{% url 'product_detail' product.slug %}">
+                                        {% if product.main_image %}
+                                        <img src="{{ product.main_image.image.url }}" title="{{ product.name }}"
+                                            alt="{{ product.name }}" class="img-responsive" />
+                                        {% else %}
+                                        <img src="{% static 'image/cache/catalog/placeholder-328x328.jpg' %}"
+                                            title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive" />
+                                        {% endif %}
+                                    </a>
+    
+                                    {% if product.discount_percent > 0 %}
+                                    <span class="special-tag">-{{ product.discount_percent }}%</span>
+                                    {% endif %}
+    
+                                    {% if not product.is_in_stock or product.quantity == 0 %}
+                                    <span class="stock_status">Нет в наличии</span>
+                                    {% endif %}
+    
+                                    <div class="product_hover_block">
+                                        <div class="compare-button offer-btn">
+                                            <button class="compare_button" type="button" title="Сравнить"
+                                                onclick="compare.add('{{ product.id }}');"></button>
+                                        </div>
+                                        <div class="quickview-button offer-btn">
+                                            <a class="quickbox" title="Быстрый просмотр"
+                                                href="{% url 'product_quick_view' product.id %}"></a>
+                                        </div>
+                                        <div class="wishlist-button offer-btn">
+                                            <button class="wishlist" type="button" title="В избранное"
+                                                onclick="wishlist.add('{{ product.id }}');"></button>
+                                        </div>
+                                    </div>
+                                    <div class="countdown"></div>
+                                </div>
+    
+                                <div class="product-details">
+                                    <div class="caption">
+                                        {% if product.category %}
+                                        <span class="product-cat">{{ product.category.name }}</span>
+                                        {% endif %}
+    
+                                        <h4>
+                                            <a href="{% url 'product_detail' product.slug %}">
+                                                {{ product.name }}
+                                            </a>
+                                        </h4>
+    
+                                        <p class="description">
+                                            {{ product.description|striptags|truncatechars:200|default:"Описание товара
+                                            отсутствует." }}
+                                        </p>
+    
+                                        <p class="price">
+                                            {% if product.tax_price and product.tax_price != product.price %}
+                                            <span class="price-new">{{ product.price }} ₽</span>
+                                            <span class="price-old">{{ product.tax_price }} ₽</span>
+                                            {% else %}
+                                            {{ product.price }} ₽
+                                            {% endif %}
+                                        </p>
+    
+                                        <div class="action">
+                                            {% if product.quantity > 0 and product.is_in_stock %}
+                                            <button type="button" class="btn btn-primary quick-buy-btn-custom"
+                                                data-product-id="{{ product.id }}"
+                                                data-product-name="{{ product.name|escapejs }}">
+                                                Купить сейчас
+                                            </button>
+                                            {% else %}
+                                            <button type="button" class="btn btn-secondary" disabled>
+                                                Нет в наличии
+                                            </button>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-xs-12">
+                        <p>В данной категории товаров пока нет.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+    
+                <!-- Пагинация -->
+                <div class="pagination-wrapper">
+                    <div class="col-sm-6 text-right page-result">
+                        Показано {{ products|length }} товаров
+                    </div>
+                    <div class="col-sm-6 text-left page-link">
+                        <!-- Здесь будет пагинация -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Стили для страницы -->
+    <style>
+        .box-category ul {
+            padding-left: 15px;
+        }
+    
+        .box-category li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+    
+        .box-category a {
+            color: #666;
+            text-decoration: none;
+        }
+    
+        .box-category a:hover,
+        .box-category a.active {
+            color: #007bff;
+        }
+    
+        .product-items {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+    
+        .product-items:last-child {
+            border-bottom: none;
+        }
+    
+        .category_thumb {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+    
+        .page-title {
+            margin-top: 0;
+            color: #333;
+        }
+    
+        .category_filter {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        .special-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #dc3545;
+            color: white;
+            padding: 3px 8px;
+            font-size: 12px;
+            border-radius: 3px;
+            z-index: 2;
+        }
+    
+        .stock_status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #6c757d;
+            color: white;
+            padding: 3px 8px;
+            font-size: 12px;
+            border-radius: 3px;
+            z-index: 2;
+        }
+    
+        .outstock {
+            opacity: 0.7;
+        }
+    
+        @media (max-width: 767px) {
+            .category_filter {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .btn-list-grid {
+                text-align: center;
+            }
+        }
+
+        /* Стили для блока новинок */
+.productbox-grid {
+    display: block;
+}
+
+.product-items {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.product-items:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.product-items .image {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 15px;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.product-items .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Важно! Растягивает изображение на весь блок */
+}
+
+.product-items .product-details {
+    overflow: hidden;
+    padding: 0;
+}
+
+.product-items h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.product-items h4 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.product-items h4 a:hover {
+    color: #007bff;
+}
+
+.product-items .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 5px 0;
+}
+
+.product-items .price-tax {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    font-weight: normal;
+}
+
+.product-items .product_hover_block {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+}
+
+.product-items .action {
+    display: flex;
+    gap: 3px;
+}
+
+.product-items .cart_button,
+.product-items .quickbox,
+.product-items .wishlist,
+.product-items .compare_button {
+    width: 25px;
+    height: 25px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 3px;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.product-items .cart_button:hover,
+.product-items .quickbox:hover,
+.product-items .wishlist:hover,
+.product-items .compare_button:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Очистка float */
+.product-items:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.product-items .image {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+}
+
+.product-items .image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+}
+
+.swiper-viewport {
+    width: 300px !important;
+    max-width: 300px !important;
+    min-width: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#banner0 .swiper-slide img {
+    width: 300px !important;
+    max-width: 300px !important;
+    height: auto !important;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 767px) {
+    .swiper-viewport {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    #banner0 .swiper-slide img {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+    </style>
+
+
+    </div>
+    </div>
+    <footer>
+
+        <div class="footer-container">
+            <div id="footer" class="bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-blocks">
+                            <!-- Левая колонка с контактами -->
+                            <aside id="footer-left" class="col-sm-4 column footerleft">
+                                <div class="contact-block">
+                                    <h5>Контакты</h5>
+                                    <ul>
+                                        <li class="item address">
+                                            <i class="fa fa-map-marker"></i>
+                                            <span>Москва, Кожевнический проезд, д. 1<br>бизнес-центр River Place</span>
+                                        </li>
+                                        <li class="item phone">
+                                            <i class="fa fa-phone"></i>
+                                            <span class="contact-inner">
+                                                <a href="tel:+79175492845">+7 (917) 549-28-45</a>
+                                            </span>
+                                        </li>
+                                        <li class="item email">
+                                            <i class="fa fa-envelope-o"></i>
+                                            <span>info@nerjarest.ru</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+        
+                            <!-- Центральная колонка (пустая для баланса) -->
+                            <div class="col-sm-4 column">
+                                <!-- Можно добавить меню или оставить пустым -->
+                            </div>
+        
+                            <!-- Правая колонка с подпиской -->
+                            <aside id="footer-right" class="col-sm-4 column footerright">
+                                <div class="newsletter">
+                                    <div class="news-left">
+                                        <div class="news-title">Получить последние обновления</div>
+                                        <div class="news-des">Вы можете отписаться в любой момент.</div>
+                                    </div>
+                                    <div class="news-right">
+                                        <form method="post">
+                                            <div class="form-group">
+                                                <label class="control-label">Введите свой адрес электронной почты</label>
+                                                <div class="input-news">
+                                                    <input type="email" name="txtemail" id="txtemail" value=""
+                                                        placeholder="Ваш email" class="form-control input-lg" />
+                                                    <button type="submit" class="btn btn-default btn-lg"
+                                                        onclick="return subscribe();">Подписаться</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Стили для правильного распределения по углам -->
+        <style>
+            .footer-blocks {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                width: 100%;
+            }
+        
+            .footerleft {
+                text-align: left;
+            }
+        
+            .footerright {
+                text-align: right;
+            }
+        
+            .footerright .newsletter {
+                text-align: right;
+            }
+        
+            .footerright .input-news {
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+        
+            .footerright .form-control {
+                width: 250px;
+            }
+        
+            .contact-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .contact-block li {
+                margin-bottom: 15px;
+                display: flex;
+                align-items: flex-start;
+            }
+        
+            .contact-block li i {
+                width: 25px;
+                font-size: 16px;
+                color: #666;
+                margin-top: 3px;
+            }
+        
+            .contact-block li span {
+                flex: 1;
+                line-height: 1.5;
+            }
+        
+            .contact-block li a {
+                color: #333;
+                text-decoration: none;
+            }
+        
+            .contact-block li a:hover {
+                color: #007bff;
+            }
+        
+            /* Стили для подписки */
+            .newsletter {
+                padding: 15px;
+                background: #f8f9fa7a;
+            }
+        
+            .news-title {
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 5px;
+                color: #333;
+            }
+        
+            .news-des {
+                font-size: 13px;
+                color: #666;
+                margin-bottom: 15px;
+            }
+        
+            .input-news {
+                display: flex;
+                gap: 10px;
+            }
+        
+            .input-news .form-control {
+                flex: 1;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                padding: 10px 15px;
+            }
+        
+            .input-news .btn {
+                background: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        
+            .input-news .btn:hover {
+                background: #0056b3;
+            }
+        
+            /* Адаптация для мобильных */
+            @media (max-width: 767px) {
+                .footer-blocks {
+                    flex-direction: column;
+                }
+        
+                .footerleft,
+                .footerright {
+                    width: 100%;
+                    text-align: left;
+                    margin-bottom: 30px;
+                }
+        
+                .footerright .input-news {
+                    justify-content: flex-start;
+                }
+        
+                .footerright .form-control {
+                    width: 100%;
+                }
+            }
+        </style>
+
+
+
+
+        
+        </div>
+
+        <div class="bottomfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="bottomfooter-inner">
+        
+                        <p class="powered">Powered By <a href="https://web.telegram.org/k/#@Mikaggwp">Mik</a> NerjaRest -
+                            НержаСтиль &copy; 2026</p>
+                        <div id="paymentcmsblock" class="paymentcmsblock">
+                            <p></p>
+                            <div class="payment-block">
+                                <ul>
+                                    <img src="{% static 'image/catalog/maestro.png' %}" alt="">
+                                    <img src="{% static 'image/catalog/mastercard.png' %}" alt="">
+                                    <img src="{% static 'image/catalog/paypal.png' %}" alt="">
+                                    <img src="{% static 'image/catalog/visa.png' %}" alt="">
+                                </ul>
+                            </div>
+                            <p></p>
+                        </div>
+        
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script type="text/javascript">
+
+    </script>
+
+
+    <script><!-
+            var wd_live_search = {
+                selector: '#search input[name=\'search\']',
+                text_no_matches: 'There are no products to list in this category.',
+                height: '50px'
+            }
+
+            $(document).ready(function() {
+                var html = '';
+                html += '<div class="live-search">';
+                html += '	<ul>';
+                html += '	</ul>';
+                html += '<div class="result-text"></div>';
+                html += '</div>';
+
+                //$(wd_live_search.selector).parent().closest('div').after(html);
+                $(wd_live_search.selector).after(html);
+
+                $(wd_live_search.selector).autocomplete({
+                    'source': function(request, response) {
+                        var filter_name = $(wd_live_search.selector).val();
+                        var cat_id = 0;
+                        var module_wd_live_search_min_length = '1';
+                        if (filter_name.length < module_wd_live_search_min_length) {
+                            $('.live-search').css('display','none');
+                             $('body').removeClass('search-open');
+                        }
+                        else{
+                            var html = '';
+                            html += '<li style="text-align: center;height:10px;">';
+                            html +=	'<img class="loading" src="image/catalog/loading.gif" />';
+                            html +=	'</li>';
+                            $('.live-search ul').html(html);
+                            $('.live-search').css('display','block');
+                            $('body').addClass('search-open');
+
+                            $.ajax({
+                                url: 'index.php?route=extension/module/wd_live_search&filter_name=' +  encodeURIComponent(filter_name),
+                                dataType: 'json',
+                                success: function(result) {
+                                    var products = result.products;
+                                    $('.live-search ul li').remove();
+                                    $('.result-text').html('');
+                                    if (!$.isEmptyObject(products)) {
+                                        var show_image = 1;
+                                        var show_price = 1;
+                                        var show_description = 1;
+                                        $('.result-text').html('<a href="http://31.128.43.100/index.php?route=product/search&amp;search='+filter_name+'" class="view-all-results">              View all results                   ('+result.total+')</a>');
+
+                                        $.each(products, function(index,product) {
+                                            var html = '';
+
+                                            html += '<li>';
+                                            html += '<a href="' + product.url + '" title="' + product.name + '">';
+                                            if(product.image && show_image){
+                                                html += '	<div class="product-image col-sm-3 col-xs-4"><img alt="' + product.name + '" src="' + product.image + '"></div>';
+                                            }
+                                            html += '<div class="search-description col-sm-9 col-xs-8">';
+                                            html += '	<div class="product-name">' + product.name ;
+                                            if(show_description){
+                                                html += '<p>' + product.extra_info + '</p>';
+                                            }
+                                            html += '</div>';
+                                            if(show_price){
+                                                if (product.special) {
+                                                    html += '	<div class="product-price"><span class="price">' + product.special + '</span><span class="special">' + product.price + '</span></div>';
+                                                } else {
+                                                    html += '	<div class="product-price"><span class="price">' + product.price + '</span></div>';
+                                                }
+                                            }
+                                            html += '</div>';
+                                            html += '<span style="clear:both"></span>';
+                                            html += '</a>';
+                                            html += '</li>';
+                                            $('.live-search ul').append(html);
+                                        });
+                                    } else {
+                                        var html = '';
+                                        html += '<li style="text-align: center;height:10px;">';
+                                        html +=	wd_live_search.text_no_matches;
+                                        html +=	'</li>';
+
+                                        $('.live-search ul').html(html);
+                                    }
+                                    $('.live-search').css('display','block');
+                                    $('body').addClass('search-open');
+                                    return false;
+                                }
+                            });
+                        }
+                    },
+                    'select': function(product) {
+                        $(wd_live_search.selector).val(product.name);
+                    }
+                });
+            	
+                $(document).bind( "mouseup touchend", function(e){
+                  var container = $('.live-search');
+                  if (!container.is(e.target) && container.has(e.target).length === 0)
+                  {
+                    container.hide();
+                  }
+                });
+            });
+        //--></script>
+
+    <!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+    <!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+</body>
+
+</html>

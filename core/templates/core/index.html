@@ -1,0 +1,2331 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NerjaRest - НержаСтиль</title>
+    <base href="" />
+    <meta name="description" content="My Store" />
+    <script src="{% static 'catalog/view/javascript/jquery/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery.countdown.js' %}"></script>
+    <link href="{% static 'catalog/view/javascript/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'catalog/view/theme/Mydecor/stylesheet/stylesheet.css' %}" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Jost:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/javascript/jquery/magnific/magnific-popup.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/lightbox.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/carousel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/custom.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/category-list.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/newsletter.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/megamenu.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.transitions.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'catalog/view/javascript/jquery/swiper/css/swiper.min.css' %}" type="text/css" rel="stylesheet"
+        media="screen" />
+    <link href="{% static 'catalog/view/javascript/jquery/swiper/css/opencart.css' %}" type="text/css" rel="stylesheet"
+        media="screen" />
+    <link href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.css' %}" type="text/css" rel="stylesheet"
+        media="screen" />
+    <link href="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.transitions.css' %}" type="text/css" rel="stylesheet"
+        media="screen" />
+    <script src="{% static 'catalog/view/javascript/jquery/swiper/js/swiper.jquery.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.bpopup.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.cookie.js' %}"></script>
+    <link href="{% static 'image/catalog/photo_2025-08-23_23-15-13.jpg' %}" rel="icon" />
+    <!-- webdigify www.templatemela.com - Start -->
+    <script src="{% static 'catalog/view/javascript/webdigify/custom.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/parallax.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jstree.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/carousel.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/webdigify.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.custom.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.formalize.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.elevatezoom.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/bootstrap-notify.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/tabs.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/jquery.hoverdir.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/modernizr.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/lightbox/lightbox-2.6.min.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/inview.js' %}"></script>
+    <script src="{% static 'catalog/view/javascript/webdigify/megamenu.js' %}"></script>
+
+
+    <!-- ======= Quick view JS ========= -->
+    <script>
+
+        function quickbox() {
+            if ($(window).width() > 767) {
+                $('.quickview-button').magnificPopup({
+                    type: 'iframe',
+                    delegate: 'a',
+                    preloader: true,
+                    tLoading: 'Loading image #%curr%...',
+                });
+            }
+        }
+        jQuery(document).ready(function () { quickbox(); });
+        jQuery(window).resize(function () { quickbox(); });
+
+        $(document).ready(function () {
+            $('.category_list ul').owlCarousel({
+                items: 5,
+                autoPlay: false,
+                singleItem: false,
+                navigation: true,
+                navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                pagination: false,
+                itemsDesktop: [1459, 5],
+                itemsDesktopSmall: [1199, 4],
+                itemsTablet: [650, 3],
+                itemsTabletSmall: [479, 2],
+                itemsMobile: [379, 2]
+            });
+        });
+    </script>
+
+    <!-- webdigify www.templatemela.com - End -->
+
+    <script src="{% static 'catalog/view/javascript/common.js' %}"></script>
+
+</head>
+
+
+<body class="common-home   layout-1">
+    <header>
+        <nav class="header_nav">
+            <div class="container">
+                <div class="row">
+                    <div class="left-nav">
+                        <aside id="header-nav-left">
+                            
+
+                        </aside>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </nav>
+        <div id="header_top" class="header_top">
+            <div class="container">
+                <div class="row">
+                    <!-- Логотип слева -->
+                    <div class="col-sm-4 header-logo" style="padding: 7px 0;">
+                        <div id="logo">
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'image/catalog/logo.png' %}" title="NerjaRest - НержаСтиль"
+                                    alt="NerjaRest - НержаСтиль" class="img-responsive" id="mobile-logo">
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Десктопное меню (видно только на больших экранах) -->
+                    <div class="headertop desktop-only">
+                        <aside id="header-top">
+                            <div class="main-category-list left-menu">
+                                <div class="cat-menu">
+                                    <div class="wd-menu horizontal-menu wd-menu-bar" id="wd-menu-6130">
+                                        <ul class="ul-top-items">
+                                            {% for category in header_categories %}
+                                            <li class="li-top-item mega-menu wd-sub-menu">
+                                                <span class="a-top-link" style="cursor: default;">
+                                                    <span>{{ category.name }}</span>
+                                                </span>
+                                                <i class="material-icons"></i>
+        
+                                                <!-- Мега меню с подкатегориями -->
+                                                {% if category.subcategories.exists %}
+                                                <div class="mega-menu-container product-thumb sub-menu-container">
+                                                    <div class="container">
+                                                        {% for subcategory in category.subcategories.all %}
+                                                        <div class="col-sm-4 sub-item2-content" data-cols="4">
+                                                            <div class="sub-cate-img"></div>
+                                                            <a class="a-mega-second-link"
+                                                                href="{% url 'subcategory_detail' category.slug subcategory.slug %}">
+                                                                <h4><strong>{{ subcategory.name }}</strong></h4>
+                                                            </a>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+        
+                    <!-- Правая часть (корзина и аккаунт) для десктопа -->
+                    <div class="nav2 desktop-only">
+                        <div class="col-sm-3 header_cart">
+                            <div id="cart" class="btn-group btn-block">
+                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..."
+                                    class="btn btn-inverse btn-block btn-lg dropdown-toggle">
+                                    <div class="cart_detail">
+                                        <div class="cart_image"><i class="material-icons-outlined shopping-cart"></i></div>
+                                        <span id="cart-total">
+                                            <span class="cart_heading">Корзина : </span>
+                                            <span class="item-count">0</span>
+                                            <span class="mycart">товаров</span>
+                                            <span class="price"> 0 ₽</span>
+                                        </span>
+                                    </div>
+                                </button>
+        
+                                <ul class="dropdown-menu pull-right cart-menu">
+                                    <li>
+                                        <p class="text-center">Ваша корзина пуста!</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Бургер-меню (видно только на мобильных) -->
+                    <div class="mobile-burger mobile-only">
+                        <button class="burger-btn" id="burgerToggle">
+                            <span class="burger-line"></span>
+                            <span class="burger-line"></span>
+                            <span class="burger-line"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-header">
+                    <h3>Меню</h3>
+                    <button class="mobile-close" id="mobileClose">&times;</button>
+                </div>
+                <ul class="mobile-categories-list">
+                    {% for category in header_categories %}
+                    <li class="mobile-category-item">
+                        <div class="mobile-category-row">
+                            <span class="mobile-category-link" style="cursor: default;">
+                                {{ category.name }}
+                            </span>
+                            {% if category.subcategories.exists %}
+                            <button class="mobile-sub-toggle" data-category="{{ category.id }}">
+                                <i class="fa fa-chevron-down"></i>
+                            </button>
+                            {% endif %}
+                        </div>
+        
+                        {% if category.subcategories.exists %}
+                        <ul class="mobile-subcategories-list" id="subcats-{{ category.id }}" style="display: none;">
+                            {% for subcategory in category.subcategories.all %}
+                            <li>
+                                <a href="{% url 'subcategory_detail' category.slug subcategory.slug %}"
+                                    class="mobile-subcategory-link">
+                                    {{ subcategory.name }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Стили для мобильной версии -->
+        <style>
+            /* По умолчанию скрываем мобильные элементы */
+            .mobile-only {
+                display: none;
+            }
+        
+            /* Десктопное меню видно по умолчанию */
+            .desktop-only {
+                display: block;
+            }
+        
+            /* Мобильное меню */
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100%;
+                background: white;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 10000;
+                overflow-y: auto;
+            }
+        
+            .mobile-menu.show {
+                display: block;
+            }
+        
+            .mobile-menu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+        
+            .mobile-menu-header h3 {
+                margin: 0;
+                font-size: 18px;
+            }
+        
+            .mobile-close {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                padding: 0 5px;
+            }
+        
+            .mobile-categories-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .mobile-category-item {
+                border-bottom: 1px solid #eee;
+            }
+        
+            .mobile-category-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        
+            .mobile-category-link {
+                flex: 1;
+                padding: 15px;
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                display: block;
+            }
+        
+            .mobile-sub-toggle {
+                width: 45px;
+                height: 45px;
+                background: transparent;
+                border: none;
+                border-left: 1px solid #eee;
+                cursor: pointer;
+                font-size: 14px;
+            }
+        
+            .mobile-sub-toggle:hover {
+                background: #f5f5f5;
+            }
+        
+            .mobile-subcategories-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                background: #f9f9f9;
+            }
+        
+            .mobile-subcategories-list li {
+                border-top: 1px solid #eee;
+            }
+        
+            .mobile-subcategory-link {
+                display: block;
+                padding: 12px 15px 12px 30px;
+                color: #666;
+                text-decoration: none;
+                font-size: 14px;
+            }
+        
+            .mobile-subcategory-link:hover {
+                background: #f0f0f0;
+                color: #333;
+            }
+        
+            /* Бургер-кнопка */
+            .burger-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        
+            .burger-line {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: #333;
+                border-radius: 3px;
+                transition: 0.3s;
+            }
+        
+            /* Затемнение фона */
+            body.menu-open {
+                overflow: hidden;
+            }
+        
+            body.menu-open::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+            }
+        
+            /* Мобильные стили */
+            @media (max-width: 767px) {
+                .mobile-only {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+        
+                .desktop-only {
+                    display: none !important;
+                }
+        
+                .row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+                }
+        
+                .header-logo {
+                    padding: 5px 0 !important;
+                }
+        
+                #mobile-logo {
+                    max-height: 40px;
+                    width: auto;
+                }
+        
+                .mobile-burger {
+                    margin-left: auto;
+                    padding-right: 5px;
+                }
+            }
+        
+            /* Анимация бургера */
+            .burger-btn.active .burger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+        
+            .burger-btn.active .burger-line:nth-child(2) {
+                opacity: 0;
+            }
+        
+            .burger-btn.active .burger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        </style>
+        
+        <!-- JavaScript для мобильного меню -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const burgerBtn = document.getElementById('burgerToggle');
+                const mobileMenu = document.getElementById('mobileMenu');
+                const closeBtn = document.getElementById('mobileClose');
+                const subToggles = document.querySelectorAll('.mobile-sub-toggle');
+                const body = document.body;
+
+                // Открыть меню
+                if (burgerBtn) {
+                    burgerBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        burgerBtn.classList.toggle('active');
+                        mobileMenu.classList.toggle('show');
+
+                        if (mobileMenu.classList.contains('show')) {
+                            body.classList.add('menu-open');
+                        } else {
+                            body.classList.remove('menu-open');
+                        }
+                    });
+                }
+
+                // Закрыть меню
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function () {
+                        burgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('show');
+                        body.classList.remove('menu-open');
+                    });
+                }
+
+                // Закрыть при клике на затемнение
+                body.addEventListener('click', function (e) {
+                    if (body.classList.contains('menu-open')) {
+                        if (!e.target.closest('.mobile-menu') && !e.target.closest('.burger-btn')) {
+                            burgerBtn.classList.remove('active');
+                            mobileMenu.classList.remove('show');
+                            body.classList.remove('menu-open');
+                        }
+                    }
+                });
+
+                // Тоггл подкатегорий
+                subToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const categoryId = this.dataset.category;
+                        const subMenu = document.getElementById('subcats-' + categoryId);
+                        const icon = this.querySelector('i');
+
+                        if (subMenu.style.display === 'none' || subMenu.style.display === '') {
+                            subMenu.style.display = 'block';
+                            icon.classList.remove('fa-chevron-down');
+                            icon.classList.add('fa-chevron-up');
+                        } else {
+                            subMenu.style.display = 'none';
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    });
+                });
+
+                // При изменении размера окна
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 767) {
+                        mobileMenu.classList.remove('show');
+                        body.classList.remove('menu-open');
+                        if (burgerBtn) burgerBtn.classList.remove('active');
+                    }
+                });
+            });
+        </script>
+        </div>
+    </header>
+    <div class="content-top-breadcum">
+        <div class="container">
+        </div>
+    </div>
+
+
+
+<!-- Модальное окно для быстрого заказа -->
+<div id="quickBuyModalCustom">
+    <div class="modal-dialog-custom">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h5 class="modal-title-custom" id="quickBuyModalLabelCustom">
+                    <i class="fas fa-bolt" style="margin-right: 10px;"></i>
+                    Быстрый заказ
+                </h5>
+                <button type="button" class="btn-close-custom" id="closeModalBtnCustom" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body-custom">
+                <form id="quickBuyFormCustom">
+                    <input type="hidden" name="product_id" value="" id="quickProductIdCustom">
+                    {% csrf_token %}
+
+                    <div class="form-group-custom">
+                        <label for="quickNameCustom" class="form-label-custom" data-required="true">Имя</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="form-control-custom" id="quickNameCustom" name="name"
+                                placeholder="Введите ваше имя" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="quickSurnameCustom" class="form-label-custom">Фамилия</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="form-control-custom" id="quickSurnameCustom" name="surname"
+                                placeholder="Введите вашу фамилию">
+                        </div>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="quickPhoneCustom" class="form-label-custom" data-required="true">Телефон</label>
+                        <div class="phone-input-wrapper">
+                            <input type="tel" class="form-control-custom" id="quickPhoneCustom" name="phone"
+                                placeholder="999 999 99 99" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="quickTelegramCustom" class="form-label-custom">Telegram</label>
+                        <div class="telegram-input-wrapper">
+                            <input type="text" class="form-control-custom" id="quickTelegramCustom" name="telegram"
+                                placeholder="@username">
+                        </div>
+                    </div>
+
+                    <div id="quickMessageCustom" class="form-message-custom"></div>
+                </form>
+            </div>
+            <div class="modal-footer-custom">
+                <button type="button" class="btn-custom btn-secondary-custom" id="closeModalFooterBtnCustom">
+                    <i class="fas fa-times" style="margin-right: 8px;"></i>
+                    Закрыть
+                </button>
+                <button type="button" class="btn-custom btn-success-custom" id="quickBuySubmitCustom">
+                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                    Отправить заявку
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Затемнение фона -->
+<div id="modalBackdropCustom" class="modal-backdrop-custom"></div>
+
+<!-- Font Awesome для иконок (если еще не подключен) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<style>
+    /* Затемнение фона */
+    .modal-backdrop-custom {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+        backdrop-filter: blur(5px);
+        z-index: 99998;
+        display: none;
+    }
+
+    .modal-backdrop-custom.show {
+        display: block;
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    /* Само модальное окно */
+    #quickBuyModalCustom {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    #quickBuyModalCustom.show {
+        display: block;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    /* Центрирование модалки */
+    .modal-dialog-custom {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        margin: 2rem auto;
+        padding: 0 15px;
+        min-height: calc(100% - 4rem);
+        display: flex;
+        align-items: center;
+    }
+
+    /* Контент модалки */
+    .modal-content-custom {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: none;
+        outline: 0;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    /* Заголовок */
+    .modal-header-custom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, #eaa466 0%, #a2694b 100%);
+        border-bottom: none;
+    }
+
+    .modal-title-custom {
+        margin: 0;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Кнопка закрытия */
+    .btn-close-custom {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .btn-close-custom:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(90deg);
+    }
+
+    /* Тело модалки */
+    .modal-body-custom {
+        padding: 2rem;
+    }
+
+    /* Подвал */
+    .modal-footer-custom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 1.5rem 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+        gap: 1rem;
+    }
+
+    /* Кнопки */
+    .btn-custom {
+        display: inline-block;
+        font-weight: 500;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        transition: all 0.2s;
+        border: none;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .btn-secondary-custom {
+        color: #4a5568;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+    }
+
+    .btn-secondary-custom:hover {
+        background: #f7fafc;
+        border-color: #cbd5e0;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-success-custom {
+        color: white;
+        background: linear-gradient(135deg, #eaa466 0%, #a2694b 100%);
+        box-shadow: 0 4px 6px rgba(56, 161, 105, 0.3);
+    }
+
+    .btn-success-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(56, 161, 105, 0.4);
+    }
+
+    .btn-custom:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        transform: none;
+    }
+
+    /* Поля формы */
+    .form-group-custom {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label-custom {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #2d3748;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-label-custom[data-required="true"]::after {
+        content: '*';
+        color: #fc8181;
+        margin-left: 4px;
+        font-size: 1.1rem;
+    }
+
+    .form-control-custom {
+        display: block;
+        width: 100%;
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #2d3748;
+        background: white;
+        border: 2px solid #e2e8f0;
+        transition: all 0.2s;
+        box-sizing: border-box;
+    }
+
+    .form-control-custom:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-control-custom::placeholder {
+        color: #a0aec0;
+    }
+
+    /* Иконки внутри полей */
+    .input-icon {
+        position: relative;
+    }
+
+    .input-icon i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #a0aec0;
+        z-index: 1;
+    }
+
+    .input-icon input {
+        padding-left: 2.8rem;
+    }
+
+    /* Специальные обертки для телефона и telegram */
+    .phone-input-wrapper {
+        position: relative;
+    }
+
+    .phone-input-wrapper::before {
+        content: '+7';
+        position: absolute;
+        left: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #718096;
+        font-weight: 500;
+        z-index: 1;
+    }
+
+    #quickPhoneCustom {
+        padding-left: 3rem;
+    }
+
+    .telegram-input-wrapper {
+        position: relative;
+    }
+
+    .telegram-input-wrapper::before {
+        content: '@';
+        position: absolute;
+        left: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #718096;
+        font-weight: 500;
+        z-index: 1;
+    }
+
+    #quickTelegramCustom {
+        padding-left: 2.5rem;
+    }
+
+    /* Сообщение об ошибке/успехе */
+    .form-message-custom {
+        min-height: 24px;
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: 500;
+        animation: fadeIn 0.3s;
+    }
+
+    .form-message-custom.success {
+        color: #38a169;
+        background: #f0fff4;
+        padding: 0.75rem;
+        border: 1px solid #9ae6b4;
+    }
+
+    .form-message-custom.error {
+        color: #e53e3e;
+        background: #fff5f5;
+        padding: 0.75rem;
+        border: 1px solid #feb2b2;
+    }
+
+    /* Анимации */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Адаптация для мобильных */
+    @media (max-width: 576px) {
+        .modal-dialog-custom {
+            margin: 1rem auto;
+        }
+
+        .modal-header-custom {
+            padding: 1rem 1.5rem;
+        }
+
+        .modal-body-custom {
+            padding: 1.5rem;
+        }
+
+        .modal-footer-custom {
+            padding: 1rem 1.5rem;
+            flex-direction: column;
+        }
+
+        .btn-custom {
+            width: 100%;
+        }
+
+        .modal-title-custom {
+            font-size: 1.25rem;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('Модальное окно инициализировано');
+
+        // Элементы модалки
+        const modal = document.getElementById('quickBuyModalCustom');
+        const backdrop = document.getElementById('modalBackdropCustom');
+        const closeBtn = document.getElementById('closeModalBtnCustom');
+        const closeFooterBtn = document.getElementById('closeModalFooterBtnCustom');
+        const submitBtn = document.getElementById('quickBuySubmitCustom');
+        const quickForm = document.getElementById('quickBuyFormCustom');
+        const messageEl = document.getElementById('quickMessageCustom');
+
+        // Функция открытия модалки
+        window.openQuickBuyModal = function (productId, productName) {
+            console.log('Открываем модалку для товара:', productId, productName);
+
+            // Обновляем название товара в заголовке
+            const titleElement = document.getElementById('quickBuyModalLabelCustom');
+            if (titleElement) {
+                titleElement.innerHTML = '<i class="fas fa-bolt" style="margin-right: 10px;"></i>' +
+                    'Быстрый заказ: ' + (productName || 'Товар');
+            }
+
+            // Обновляем ID товара в скрытом поле
+            const productIdField = document.getElementById('quickProductIdCustom');
+            if (productIdField) {
+                productIdField.value = productId || '';
+            }
+
+            // Очищаем поля формы
+            document.getElementById('quickNameCustom').value = '';
+            document.getElementById('quickSurnameCustom').value = '';
+            document.getElementById('quickPhoneCustom').value = '';
+            document.getElementById('quickTelegramCustom').value = '';
+
+            // Очищаем сообщение
+            if (messageEl) {
+                messageEl.textContent = '';
+                messageEl.className = 'form-message-custom';
+            }
+
+            // Показываем модалку
+            modal.classList.add('show');
+            backdrop.classList.add('show');
+            document.body.style.overflow = 'hidden';
+
+            // Фокус на поле имени
+            setTimeout(() => {
+                document.getElementById('quickNameCustom').focus();
+            }, 300);
+        };
+
+        // Функция закрытия модалки
+        function closeModal() {
+            modal.classList.remove('show');
+            backdrop.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Функция для показа сообщений
+        function showMessage(text, type) {
+            if (messageEl) {
+                messageEl.textContent = text;
+                messageEl.className = 'form-message-custom ' + type;
+            }
+        }
+
+        // Функция для получения CSRF-токена
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Обработчики закрытия
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeModal);
+
+        // Закрытие по клику на backdrop
+        if (backdrop) {
+            backdrop.addEventListener('click', closeModal);
+        }
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        // Обработка отправки формы
+        if (submitBtn && quickForm) {
+            submitBtn.addEventListener('click', async function () {
+                console.log('Кнопка отправки нажата');
+
+                // Валидация на клиенте
+                const name = document.getElementById('quickNameCustom').value.trim();
+                const surname = document.getElementById('quickSurnameCustom').value.trim();
+                const phone = document.getElementById('quickPhoneCustom').value.trim();
+                const telegram = document.getElementById('quickTelegramCustom').value.trim();
+                const productId = document.getElementById('quickProductIdCustom').value;
+
+                if (!name) {
+                    showMessage('Пожалуйста, укажите ваше имя', 'error');
+                    return;
+                }
+
+                if (!phone) {
+                    showMessage('Пожалуйста, укажите номер телефона', 'error');
+                    return;
+                }
+
+                if (!productId) {
+                    showMessage('Ошибка: не указан товар', 'error');
+                    return;
+                }
+
+                // Блокируем кнопку
+                submitBtn.disabled = true;
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i> Отправляем...';
+
+                // Формируем JSON данные
+                const jsonData = {
+                    product_id: productId,
+                    name: name,
+                    surname: surname,
+                    phone: phone,
+                    telegram: telegram
+                };
+
+                // Получаем CSRF токен
+                const csrftoken = getCookie('csrftoken') || document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+
+                try {
+                    const response = await fetch("{% url 'quick_buy' %}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrftoken,
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(jsonData)
+                    });
+
+                    const data = await response.json();
+                    console.log('Ответ сервера:', data);
+
+                    if (data.success) {
+                        showMessage(data.message || 'Спасибо! Ваша заявка принята!', 'success');
+                        quickForm.reset();
+
+                        // Закрываем модалку через 2 секунды
+                        setTimeout(() => {
+                            closeModal();
+                        }, 2000);
+                    } else {
+                        showMessage(data.message || 'Ошибка при отправке заявки', 'error');
+
+                        // Разблокируем кнопку
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
+                } catch (error) {
+                    console.error('Ошибка:', error);
+                    showMessage('Не удалось отправить заявку. Попробуйте позже.', 'error');
+
+                    // Разблокируем кнопку
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+    });
+</script>
+
+<script>
+    // Автоматически находим все кнопки с классом quick-buy-btn-custom
+    document.addEventListener('DOMContentLoaded', function () {
+        const buyButtons = document.querySelectorAll('.quick-buy-btn-custom');
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Получаем данные из атрибутов кнопки
+                const productId = this.dataset.productId;
+                const productName = this.dataset.productName;
+
+                console.log('Клик по кнопке "Купить сейчас":', productId, productName);
+
+                // Открываем модалку
+                if (typeof window.openQuickBuyModal === 'function') {
+                    window.openQuickBuyModal(productId, productName);
+                } else {
+                    console.error('Функция openQuickBuyModal не найдена');
+                }
+            });
+        });
+    });
+</script>
+
+{% block content %}
+    <div id="content" class="col-sm-12">
+        <div class="content-top">
+            <div class="main-slider">
+                <div id="spinner"></div>
+                <div class="swiper-viewport">
+                    <div id="slideshow0" class="swiper-container" style="opacity: 1;">
+                        <div class="swiper-wrapper">
+                            {% for slide in slides %}
+                            <div class="swiper-slide text-center">
+                                <a href="{{ slide.link|default:'#' }}">
+                                    <img src="{{ slide.image.url }}" alt="{{ slide.alt_text|default:slide.title }}"
+                                        class="img-responsive" />
+                                </a>
+                    
+                                <div class="slider-content">
+                                    <div class="main-carousel-content">
+                                        {% if slide.description %}
+                                        <div class="slider-description">{{ slide.description }}</div>
+                                        {% endif %}
+                    
+                                        {% if slide.title %}
+                                        <div class="slider-title">{{ slide.title }}</div>
+                                        {% endif %}
+                    
+                                        {% if slide.details %}
+                                        <div class="slider-details">{{ slide.details }}</div>
+                                        {% endif %}
+                    
+                                        <div class="slider-button">
+                                            <a href="#trending-products" class="btn btn-primary btn-lg btn-block">
+                                                Купить сейчас
+                                            </a>
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                    
+                                {% if slide.discount_text and slide.discount_price %}
+                                <div class="slider-discount">{{ slide.discount_text }}<span>${{ slide.discount_price }}</span></div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    
+                        <div class="swiper-pagination slideshow0"></div>
+                        <div class="swiper-pager">
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination slideshow0"></div>
+                    <div class="swiper-pager">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(window).load(function () {
+                    $('#slideshow0').swiper({
+                        mode: 'horizontal',
+                        slidesPerView: 1,
+                        pagination: '.slideshow0',
+                        paginationClickable: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        spaceBetween: 0,
+                        autoplay: 5500,
+                        autoplayDisableOnInteraction: true,
+                        loop: true,
+                        effect: 'fade'
+                    });
+                });	
+            </script>
+            <script>
+                // Can also be used with $(document).ready()
+                $(window).load(function () {
+                    $("#spinner").fadeOut("slow");
+                });	
+            </script>
+            
+
+        <div class="content-bottom" id="trending-products">
+            <div class="hometab box bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="tab-head">
+                            <div class="hometab-heading box-heading">Трендовые продукты</div>
+                            <div class="box-desc">Наши еженедельные самые популярные товары</div>
+
+                            
+                        </div>
+                        <div id="tab-bestseller" class="tab-content">
+                            <div class="box">
+                                <div class="box-content">
+
+                                    <!-- <div class="customNavigation">
+                                        <a class="fa prev fa-arrow-left">&nbsp;</a>
+                                        <a class="fa next fa-arrow-right">&nbsp;</a>
+                                    </div> -->
+                                    
+                                    <div class="row cat_prod">
+                                        {% for product in latest_products %} <!-- Или bestseller_products, или special_products -->
+                                        <div class="product-layout product-grid col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                                            <div class="product-block product-thumb">
+                                                <div class="product-block-inner">
+                                                    <!-- Изображение товара -->
+                                                    <div class="image">
+                                                        <a href="{% url 'product_detail' product.slug %}">
+                                                            {% if product.main_image %}
+                                                            <img src="{{ product.main_image.image.url }}" title="{{ product.name }}"
+                                                                alt="{{ product.name }}" class="img-responsive">
+                                                            {% else %}
+                                                            <img src="{% static 'image/cache/catalog/placeholder-328x328.jpg' %}" title="{{ product.name }}"
+                                                                alt="{{ product.name }}" class="img-responsive">
+                                                            {% endif %}
+                                                        </a>
+                                    
+                                                        <!-- Блок с иконками (сравнение, быстрый просмотр, избранное) -->
+                                                        <div class="product_hover_block">
+                                                            <div class="compare-button offer-btn">
+                                                                <button class="compare_button" type="button" title="Сравнить"
+                                                                    onclick="compare.add('{{ product.id }}');"></button>
+                                                            </div>
+                                                            <div class="quickview-button offer-btn">
+                                                                <a class="quickbox" title="Быстрый просмотр"
+                                                                    href="{% url 'product_quick_view' product.id %}"></a>
+                                                            </div>
+                                                            <div class="wishlist-button offer-btn">
+                                                                <button class="wishlist" type="button" title="В избранное"
+                                                                    onclick="wishlist.add('{{ product.id }}');"></button>
+                                                            </div>
+                                                        </div>
+                                    
+                                                        <!-- Обратный отсчет (если есть) -->
+                                                        <div class="countdown"></div>
+                                                    </div>
+                                    
+                                                    <!-- Детали товара -->
+                                                    <div class="product-details">
+                                                        <div class="caption">
+                                                            <!-- Категория товара -->
+                                                            {% if product.category %}
+                                                            <span class="product-cat">{{ product.category.name }}</span>
+                                                            {% endif %}
+                                    
+                                                            
+                                    
+                                                            <!-- Название товара -->
+                                                            <h4>
+                                                                <a href="{% url 'product_detail' product.slug %}">
+                                                                    {{ product.name|truncatechars:40 }}
+                                                                </a>
+                                                            </h4>
+                                    
+                                                            <!-- Описание (если есть) -->
+                                                            <p class="description">{{ product.description|striptags|truncatechars:100|default:"" }}</p>
+                                    
+                                                            <!-- Цена -->
+                                                            <p class="price">
+                                                                {% if product.tax_price and product.tax_price != product.price %}
+                                                                <span class="price-new">₽{{ product.price }}</span>
+                                                                <span class="price-old">₽{{ product.tax_price }}</span>
+                                                                {% else %}
+                                                                ₽{{ product.price }}
+                                                                {% endif %}
+                                                            </p>
+                                    
+                                                            <!-- Кнопка "Купить сейчас" (ВМЕСТО "В корзину") -->
+                                                            <div class="action">
+                                                                {% if product.quantity > 0 and product.is_in_stock %}
+                                                                <button type="button" class="btn btn-primary btn-lg btn-block quick-buy-btn-custom"
+                                                                    data-product-id="{{ product.id }}" data-product-name="{{ product.name|escapejs }}">
+                                                                    Купить сейчас
+                                                                </button>
+                                                                {% else %}
+                                                                <button type="button" class="cart_button out_of_stock" disabled>
+                                                                    Нет в наличии
+                                                                </button>
+                                                                {% endif %}
+                                                            </div>
+                                    
+                                                            <!-- Второй блок с иконками -->
+                                                            <div class="product_hover_block">
+                                                                <div class="compare-button offer-btn">
+                                                                    <button class="compare_button" type="button" title="Сравнить"
+                                                                        onclick="compare.add('{{ product.id }}');"></button>
+                                                                </div>
+                                                                <div class="quickview-button offer-btn">
+                                                                    <a class="quickbox" title="Быстрый просмотр"
+                                                                        href="{% url 'product_quick_view' product.id %}"></a>
+                                                                </div>
+                                                                <div class="wishlist-button offer-btn">
+                                                                    <button class="wishlist" type="button" title="В избранное"
+                                                                        onclick="wishlist.add('{{ product.id }}');"></button>
+                                                                </div>
+                                    
+                                                                <!-- Вторая кнопка "Купить сейчас" (если дублируется в шаблоне) -->
+                                                                <div class="action">
+                                                                    {% if product.quantity > 0 and product.is_in_stock %}
+                                                                    <button type="button" class="btn btn-primary btn-lg btn-block quick-buy-btn-custom"
+                                                                        data-product-id="{{ product.id }}" data-product-name="{{ product.name|escapejs }}">
+                                                                        Купить сейчас
+                                                                    </button>
+                                                                    {% else %}
+                                                                    <button type="button" class="cart_button out_of_stock" disabled>
+                                                                        Нет в наличии
+                                                                    </button>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <!-- Скрипт для отзывов (если нужен) -->
+                                        <script>
+                                            $('.total-review{{ product.id }}').on('click', function () {
+                                                window.location.href = "{% url 'product_detail' product.slug %}?review";
+                                                return false;
+                                            });
+                                        </script>
+                                        {% endfor %}
+                                    </div>
+
+                                   
+
+                                </div>
+                            </div>
+                            <span class="tabbestseller_default_width" style="display:none; visibility:hidden"></span>
+                        </div>
+                        
+
+                       
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $('#tabs a').tabs();
+            </script>
+            <div id="wdcmstestimonial" class="bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="wdtestimonial-main">
+                            <div class="wdtestimonial-content">
+                                <div class="wdtestimonial-left col-sm-6">
+                                    <ul id="wdtestimonial-carousel" class="wd-carousel">
+                                        <li>
+                                            <div class="testmonial-wrapper">
+                                                <div class="testimonial-content">
+                                                    <div class="star-rating">
+                                                        <div class="rating">
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="testimonial-title">"Мойки и сушки - идеальное решение"
+                                                    </div>
+                                                    <div class="testimonial-desc">
+                                                        <p>Для небольшой пекарни купили мойку и стеллажи. Очень доволен качеством! Металл толстый, не гнется, легко моется. Размеры
+                                                        точно соответствуют заказу. Спасибо за консультацию при выборе.</p>
+                                                    </div>
+                                                    <div class="testimonial-user-title">
+                                                        <h4>Екатерина Соколова</h4>
+                                                        <span class="wdtestimonial-subtitle">Владелец пекарни "Добрый хлеб"</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="testmonial-wrapper">
+                                                <div class="testimonial-content">
+                                                    <div class="star-rating">
+                                                        <div class="rating">
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                            <span class="fa fa-stack"><i
+                                                                    class="fa fa-star fa-stack-2x"></i><i
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="testimonial-title">"Столы из нержавейки превзошли ожидания"</div>
+                                                    <div class="testimonial-desc">
+                                                        <p>Заказали полный комплект оборудования для новой кухни. Нержавейка качественная, сварные швы идеальные, доставка вовремя.
+                                                        Уже полгода используем - как новые. Влажная уборка каждый день, никаких следов ржавчины.</p>
+                                                    </div>
+                                                    <div class="testimonial-user-title">
+                                                        <h4>Александр Петров</h4>
+                                                        <span class="wdtestimonial-subtitle">Шеф-повар, ресторан "La Maree"</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="wdtestimonial-right col-sm-6">
+                                    <div class="testi-banner"><img
+                                            src="{% static 'image/catalog/Stainless.jpeg' %}"
+                                            alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="wdcmsservice" class="bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="home-sevices">
+                            <ul class="wd-sevices services-carousel">
+                                <li>
+                                    <div class="wd-return wdservice service-info-heading">
+                                        <div class="service-icon"></div>
+                                        <div class="wdservice-desc"><span class="service-title">Быстрая доставка</span>
+                                            <span class="service-desc">Бесплатная доставка при заказе на сумму свыше 10000 руб.</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wd-support wdservice service-info-heading">
+                                        <div class="service-icon"></div>
+                                        <div class="wdservice-desc"><span class="service-title">Онлайн-поддержка</span>
+                                            <span class="service-desc">Не стесняйтесь звонить нам и получать лучшую поддержку.</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wd-shop wdservice service-info-heading">
+                                        <div class="service-icon"></div>
+                                        <div class="wdservice-desc"><span class="service-title">Подарочный сертификат</span>
+                                            <span class="service-desc">Пригласите друга и получите сюрприз.</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wd-secure wdservice service-info-heading">
+                                        <div class="service-icon"></div>
+                                        <div class="wdservice-desc"><span class="service-title">Безопасная оплата</span>
+                                            <span class="service-desc">Более безопасный и надежный способ оплаты онлайн.</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="box special bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="box-heading">Deal Of The Week</div>
+                        <div class="box-desc">Our weekly sale products with best discount and special gift vouchers.
+                        </div>
+
+                        <div class="box-content">
+
+                            <div class="box-product  productbox-grid" id="special-grid">
+                                <div class="product-items">
+                                    <div class="product-block product-thumb transition">
+                                        <div class="product-block-inner">
+                                            <div class="image">
+                                                <a href="index.php%3Froute=product%252Fproduct&amp;product_id=29.html">
+                                                    <img src="{% static 'image/cache/catalog/ty-328x328.jpg' %}"
+                                                        title="Truss Wooden laurentian citrine yellow lounge chair"
+                                                        alt="Truss Wooden laurentian citrine yellow lounge chair"
+                                                        class="img-responsive" /></a>
+
+                                                <span class="special-tag">-357056%</span>
+
+                                                <div class="product_hover_block">
+                                                    <div class="compare-button offer-btn">
+                                                        <button class="compare_button" type="button" title="compare "
+                                                            onclick="compare.add('29 ');"></button>
+                                                    </div>
+                                                    <div class="quickview-button offer-btn">
+                                                        <a class="quickbox" title="Quick View"
+                                                            href="index.php%3Froute=product%252Fquick_view&amp;product_id=29.html"></a>
+                                                    </div>
+                                                    <div class="wishlist-button offer-btn">
+                                                        <button class="wishlist" type="button" title="Add to Wish List "
+                                                            onclick="wishlist.add('29 ');"></button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="countdown">
+                                                </div>
+                                            </div>
+                                            <div class="product-details">
+                                                <div class="caption">
+
+
+                                                    <div class="rating">
+                                                        <span class="fa fa-stack"><i
+                                                                class="fa fa-star fa-stack-2x"></i><i
+                                                                class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="fa fa-star fa-stack-2x"></i><i
+                                                                class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="fa fa-star fa-stack-2x"></i><i
+                                                                class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="fa fa-star fa-stack-2x"></i><i
+                                                                class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="fa fa-star fa-stack-2x"></i><i
+                                                                class="fa fa-star-o fa-stack-2x"></i></span>
+                                                    </div>
+
+
+                                                    <h4><a
+                                                            href="index.php%3Froute=product%252Fproduct&amp;product_id=29.html">Truss
+                                                            Wooden laurentian citrine yellow lounge chair </a></h4>
+
+
+                                                    <p class="price">
+                                                        <span class="price-new">$1,200,002.00</span> <span
+                                                            class="price-old">$337.99</span>
+                                                        <span class="price-tax">Ex Tax: $1,000,000.00</span>
+                                                    </p>
+
+                                                    <div class="action">
+                                                        <button type="button" class="cart_button"
+                                                            onclick="cart.add('29');" title="Add to Cart">Add to
+                                                            Cart</button>
+                                                    </div>
+
+
+                                                </div>
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <span class="special_default_width" style="display:none; visibility:hidden"></span>
+
+            <script type="text/javascript">
+
+$(document).ready(function(){
+$('.specialcarousel').owlCarousel({
+items: 4,
+singleItem: false,
+navigation: false,
+pagination: false,
+itemsDesktop : [1499,4],
+itemsDesktopSmall :	[1199,4],
+itemsTablet :	[991,3],
+itemsTabletSmall :	[650,2],
+itemsMobile :	[319,1]
+});
+// Custom Navigation Events
+$(".wdspecial_next").click(function(){
+$('.specialcarousel').trigger('owl.next');
+})
+$(".wdspecial_prev").click(function(){
+$('.specialcarousel').trigger('owl.prev');
+});	
+});	
+</script>
+
+            <!-- <div class="box webdigifyblog bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="box-heading">From The Blogs</div>
+                        <div class="box-desc">Our latest blog from our best collection items. choose your favourite
+                            items.</div>
+
+
+                        <div class="box-content">
+                            <div class="box-product owl-carousel blogcarousel " id="blog-carousel">
+
+                                <div class="blog-item">
+                                    <div class="product-block">
+
+                                        <div class="blog-left">
+                                            <div class="blog-image">
+                                                <img src="{% static 'image/cache/catalog/blog1.jpeg' %}"
+                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
+                                                <div class="post-image-hover"> </div>
+                                                <span class="post_hover">
+                                                    <div class="full-img offer-btn"><a class="icon zoom"
+                                                            title="Click to view Full Image "
+                                                            href="{% static 'image/cache/catalog/blog2.jpeg' %}"
+                                                            data-lightbox="example-set"><i
+                                                                class="fa fa-search-plus"></i> </a></div>
+                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
+                                                            title="Click to view Read More "
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=2.html"><i
+                                                                class="fa fa-link"></i></a></div>
+                                                </span>
+
+
+                                            </div>
+                                            <div class="blog-right">
+                                                <div class="view-blog">
+                                                    <h4><a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=2.html">more
+                                                            recently with desktop publishing software like</a> </h4>
+                                                    <div class="blog-desc"> Duis aute irure dolor in reprehenderit in
+                                                        voluptate velit esse cillum dolore eu fugiat nulla pariatu...
+                                                    </div>
+                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 25 February
+                                                        2022</div>
+                                                    <div class="read-more"> <a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=2.html">
+                                                            <i class="fa fa-link"></i> read more</a> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="blog-item">
+                                    <div class="product-block">
+
+                                        <div class="blog-left">
+                                            <div class="blog-image">
+                                                <img src="{% static 'image/cache/catalog/_&#32;(3)-1045x750.jpeg' %}"
+                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
+                                                <div class="post-image-hover"> </div>
+                                                <span class="post_hover">
+                                                    <div class="full-img offer-btn"><a class="icon zoom"
+                                                            title="Click to view Full Image "
+                                                            href="{% static 'image/cache/catalog/_&#32;(3)-1045x750.jpeg' %}"
+                                                            data-lightbox="example-set"><i
+                                                                class="fa fa-search-plus"></i> </a></div>
+                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
+                                                            title="Click to view Read More "
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=4.html"><i
+                                                                class="fa fa-link"></i></a></div>
+                                                </span>
+
+
+                                            </div>
+                                            <div class="blog-right">
+                                                <div class="view-blog">
+                                                    <h4><a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=4.html">Many
+                                                            desktop publishing packages and web page editors</a> </h4>
+                                                    <div class="blog-desc"> Ut enim ad minim veniam, quis nostrud
+                                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        ons... </div>
+                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 17 February
+                                                        2022</div>
+                                                    <div class="read-more"> <a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=4.html">
+                                                            <i class="fa fa-link"></i> read more</a> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="blog-item">
+                                    <div class="product-block">
+
+                                        <div class="blog-left">
+                                            <div class="blog-image">
+                                                <img src="{% static 'image/cache/catalog/Stainless&#32;steel&#32;restaurant&#32;kitchen&#32;_&#32;Premium&#32;AI-generated&#32;image&#32;(1)-1045x750.jpeg' %}"
+                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
+                                                <div class="post-image-hover"> </div>
+                                                <span class="post_hover">
+                                                    <div class="full-img offer-btn"><a class="icon zoom"
+                                                            title="Click to view Full Image "
+                                                            href="{% static 'image/cache/catalog/Stainless.jpeg' %}"
+                                                            data-lightbox="example-set"><i
+                                                                class="fa fa-search-plus"></i> </a></div>
+                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
+                                                            title="Click to view Read More "
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=1.html"><i
+                                                                class="fa fa-link"></i></a></div>
+                                                </span>
+
+
+                                            </div>
+                                            <div class="blog-right">
+                                                <div class="view-blog">
+                                                    <h4><a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=1.html">All
+                                                            the Lorem Ipsum generators on the Internet tend</a> </h4>
+                                                    <div class="blog-desc"> Link: St. Louis Blues Audio shortcode:
+                                                        “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
+                                                    </div>
+                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 25 January
+                                                        2022</div>
+                                                    <div class="read-more"> <a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=1.html">
+                                                            <i class="fa fa-link"></i> read more</a> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="blog-item">
+                                    <div class="product-block">
+
+                                        <div class="blog-left">
+                                            <div class="blog-image">
+                                                <img src="{% static 'image/cache/catalog/Restaurant_Freepik_1045x750.jpeg' %}"
+                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
+                                                <div class="post-image-hover"> </div>
+                                                <span class="post_hover">
+                                                    <div class="full-img offer-btn"><a class="icon zoom"
+                                                            title="Click to view Full Image "
+                                                            href="{% static 'image/cache/catalog/Restaurant_Freepik_1045x750.jpeg' %}"
+                                                            data-lightbox="example-set"><i
+                                                                class="fa fa-search-plus"></i> </a></div>
+                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
+                                                            title="Click to view Read More "
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=3.html"><i
+                                                                class="fa fa-link"></i></a></div>
+                                                </span>
+
+
+                                            </div>
+                                            <div class="blog-right">
+                                                <div class="view-blog">
+                                                    <h4><a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=3.html">Lorem
+                                                            Ipsum is simply dummy text of the printing</a> </h4>
+                                                    <div class="blog-desc"> Ut enim ad minim veniam, quis nostrud
+                                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        ons... </div>
+                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 20 January
+                                                        2022</div>
+                                                    <div class="read-more"> <a
+                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=3.html">
+                                                            <i class="fa fa-link"></i> read more</a> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <span class="blog_default_width" style="display:none; visibility:hidden"></span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+                    $('.blogcarousel').owlCarousel({
+                        items: 3,
+                        autoPlay: false,
+                        singleItem: false,
+                        navigation: true,
+                        navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                        pagination: true,
+                        itemsDesktop: [1199, 3],
+                        itemsDesktopSmall: [991, 2],
+                        itemsTablet: [575, 1]
+                    });
+                });	
+            </script>
+            <div id="carousel-0" class="banners-slider-carousel bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="box-content">
+                            <div class="customNavigation">
+                                <a class="prev fa fa-arrow-left">&nbsp;</a>
+                                <a class="next fa fa-arrow-right">&nbsp;</a>
+                            </div>
+                            <div class="product-carousel" id="module-0-carousel">
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/7-150x150.png' %}"
+                                                    class="img-responsive" alt="Burger King" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/4-150x150.png' %}"
+                                                    class="img-responsive" alt="Dell" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/5-150x150.png' %}"
+                                                    class="img-responsive" alt="Harley Davidson" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/1-150x150.png' %}"
+                                                    class="img-responsive" alt="Dell" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/3-150x150.png' %}"
+                                                    class="img-responsive" alt="Disney" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/6-150x150.png' %}"
+                                                    class="img-responsive" alt="Nintendo" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <div class="product-block">
+                                        <div class="product-block-inner">
+                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/2-150x150.png' %}"
+                                                    class="img-responsive" alt="Starbucks" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="module_default_width" style="display:none; visibility:hidden"></span>
+
+        </div>
+
+    </div>
+    <footer>
+
+        <div class="footer-container">
+            <div id="footer" class="bottom-to-top hb-animate-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-blocks">
+                            <!-- Левая колонка с контактами -->
+                            <aside id="footer-left" class="col-sm-4 column footerleft">
+                                <div class="contact-block">
+                                    <h5>Контакты</h5>
+                                    <ul>
+                                        <li class="item address">
+                                            <i class="fa fa-map-marker"></i>
+                                            <span>Москва, Кожевнический проезд, д. 1<br>бизнес-центр River Place</span>
+                                        </li>
+                                        <li class="item phone">
+                                            <i class="fa fa-phone"></i>
+                                            <span class="contact-inner">
+                                                <a href="tel:+79175492845">+7 (917) 549-28-45</a>
+                                            </span>
+                                        </li>
+                                        <li class="item email">
+                                            <i class="fa fa-envelope-o"></i>
+                                            <span>info@nerjarest.ru</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+        
+                            <!-- Центральная колонка (пустая для баланса) -->
+                            <div class="col-sm-4 column">
+                                <!-- Можно добавить меню или оставить пустым -->
+                            </div>
+        
+                            <!-- Правая колонка с подпиской -->
+                            <aside id="footer-right" class="col-sm-4 column footerright">
+                                <div class="newsletter">
+                                    <div class="news-left">
+                                        <div class="news-title">Получить последние обновления</div>
+                                        <div class="news-des">Вы можете отписаться в любой момент.</div>
+                                    </div>
+                                    <div class="news-right">
+                                        <form method="post">
+                                            <div class="form-group">
+                                                <label class="control-label">Введите свой адрес электронной почты</label>
+                                                <div class="input-news">
+                                                    <input type="email" name="txtemail" id="txtemail" value=""
+                                                        placeholder="Ваш email" class="form-control input-lg" />
+                                                    <button type="submit" class="btn btn-default btn-lg"
+                                                        onclick="return subscribe();">Подписаться</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Стили для правильного распределения по углам -->
+        <style>
+            .footer-blocks {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                width: 100%;
+            }
+        
+            .footerleft {
+                text-align: left;
+            }
+        
+            .footerright {
+                text-align: right;
+            }
+        
+            .footerright .newsletter {
+                text-align: right;
+            }
+        
+            .footerright .input-news {
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+        
+            .footerright .form-control {
+                width: 250px;
+            }
+        
+            .contact-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .contact-block li {
+                margin-bottom: 15px;
+                display: flex;
+                align-items: flex-start;
+            }
+        
+            .contact-block li i {
+                width: 25px;
+                font-size: 16px;
+                color: #666;
+                margin-top: 3px;
+            }
+        
+            .contact-block li span {
+                flex: 1;
+                line-height: 1.5;
+            }
+        
+            .contact-block li a {
+                color: #333;
+                text-decoration: none;
+            }
+        
+            .contact-block li a:hover {
+                color: #007bff;
+            }
+        
+            /* Стили для подписки */
+            .newsletter {
+                padding: 15px;
+                background: #f8f9fa7a;
+            }
+        
+            .news-title {
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 5px;
+                color: #333;
+            }
+        
+            .news-des {
+                font-size: 13px;
+                color: #666;
+                margin-bottom: 15px;
+            }
+        
+            .input-news {
+                display: flex;
+                gap: 10px;
+            }
+        
+            .input-news .form-control {
+                flex: 1;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                padding: 10px 15px;
+            }
+        
+            .input-news .btn {
+                background: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        
+            .input-news .btn:hover {
+                background: #0056b3;
+            }
+        
+            /* Адаптация для мобильных */
+            @media (max-width: 767px) {
+                .footer-blocks {
+                    flex-direction: column;
+                }
+        
+                .footerleft,
+                .footerright {
+                    width: 100%;
+                    text-align: left;
+                    margin-bottom: 30px;
+                }
+        
+                .footerright .input-news {
+                    justify-content: flex-start;
+                }
+        
+                .footerright .form-control {
+                    width: 100%;
+                }
+            }
+        </style>
+        </div>
+        <div class="bottomfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="bottomfooter-inner">
+
+                        <p class="powered">Powered By <a href="https://web.telegram.org/k/#@Mikaggwp">Mik</a> NerjaRest -
+                            НержаСтиль &copy; 2026</p>
+                        <div id="paymentcmsblock" class="paymentcmsblock">
+                            <p></p>
+                            <div class="payment-block">
+                                <ul>
+                                    <img src="{% static 'image/catalog/maestro.png' %}" alt="">
+                                    <img src="{% static 'image/catalog/mastercard.png' %}" alt="">
+                                    <img src="{% static 'image/catalog/paypal.png' %}" alt="">
+                                    <img src="{% static 'image/catalog/visa.png' %}" alt="">
+                                </ul>
+                            </div>
+                            <p></p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script type="text/javascript">
+
+    </script>
+
+
+    <script><!-
+            var wd_live_search = {
+                selector: '#search input[name=\'search\']',
+                text_no_matches: '',
+                height: '50px'
+            }
+
+            $(document).ready(function() {
+                var html = '';
+                html += '<div class="live-search">';
+                html += '	<ul>';
+                html += '	</ul>';
+                html += '<div class="result-text"></div>';
+                html += '</div>';
+
+                //$(wd_live_search.selector).parent().closest('div').after(html);
+                $(wd_live_search.selector).after(html);
+
+                $(wd_live_search.selector).autocomplete({
+                    'source': function(request, response) {
+                        var filter_name = $(wd_live_search.selector).val();
+                        var cat_id = 0;
+                        var module_wd_live_search_min_length = '1';
+                        if (filter_name.length < module_wd_live_search_min_length) {
+                            $('.live-search').css('display','none');
+                             $('body').removeClass('search-open');
+                        }
+                        else{
+                            var html = '';
+                            html += '<li style="text-align: center;height:10px;">';
+                            html +=	'<img class="loading" src="image/catalog/loading.gif" />';
+                            html +=	'</li>';
+                            $('.live-search ul').html(html);
+                            $('.live-search').css('display','block');
+                            $('body').addClass('search-open');
+
+                            $.ajax({
+                                url: 'index.php?route=extension/module/wd_live_search&filter_name=' +  encodeURIComponent(filter_name),
+                                dataType: 'json',
+                                success: function(result) {
+                                    var products = result.products;
+                                    $('.live-search ul li').remove();
+                                    $('.result-text').html('');
+                                    if (!$.isEmptyObject(products)) {
+                                        var show_image = 1;
+                                        var show_price = 1;
+                                        var show_description = 1;
+                                        $('.result-text').html('<a href="http://31.128.43.100/index.php?route=product/search&amp;search='+filter_name+'" class="view-all-results">              View all results                   ('+result.total+')</a>');
+
+                                        $.each(products, function(index,product) {
+                                            var html = '';
+
+                                            html += '<li>';
+                                            html += '<a href="' + product.url + '" title="' + product.name + '">';
+                                            if(product.image && show_image){
+                                                html += '	<div class="product-image col-sm-3 col-xs-4"><img alt="' + product.name + '" src="' + product.image + '"></div>';
+                                            }
+                                            html += '<div class="search-description col-sm-9 col-xs-8">';
+                                            html += '	<div class="product-name">' + product.name ;
+                                            if(show_description){
+                                                html += '<p>' + product.extra_info + '</p>';
+                                            }
+                                            html += '</div>';
+                                            if(show_price){
+                                                if (product.special) {
+                                                    html += '	<div class="product-price"><span class="price">' + product.special + '</span><span class="special">' + product.price + '</span></div>';
+                                                } else {
+                                                    html += '	<div class="product-price"><span class="price">' + product.price + '</span></div>';
+                                                }
+                                            }
+                                            html += '</div>';
+                                            html += '<span style="clear:both"></span>';
+                                            html += '</a>';
+                                            html += '</li>';
+                                            $('.live-search ul').append(html);
+                                        });
+                                    } else {
+                                        var html = '';
+                                        html += '<li style="text-align: center;height:10px;">';
+                                        html +=	wd_live_search.text_no_matches;
+                                        html +=	'</li>';
+
+                                        $('.live-search ul').html(html);
+                                    }
+                                    $('.live-search').css('display','block');
+                                    $('body').addClass('search-open');
+                                    return false;
+                                }
+                            });
+                        }
+                    },
+                    'select': function(product) {
+                        $(wd_live_search.selector).val(product.name);
+                    }
+                });
+            	
+                $(document).bind( "mouseup touchend", function(e){
+                  var container = $('.live-search');
+                  if (!container.is(e.target) && container.has(e.target).length === 0)
+                  {
+                    container.hide();
+                  }
+                });
+            });
+        //--></script>
+
+        {% endblock %}
+
+    <!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+    <!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.services-carousel').owlCarousel({
+            items: 4,
+            autoPlay: true,
+            singleItem: false,
+            navigation: true,
+            navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+            pagination: false,
+            itemsDesktop: [1500, 4],
+            itemsDesktopSmall: [1199, 4],
+            itemsTablet: [767, 3],
+            itemsTabletSmall: [600, 2],
+            itemsMobile: [379, 1]
+        });
+    });
+
+    $(document).ready(function () {
+        $('#wdtestimonial-carousel').owlCarousel({
+            items: 1,
+            autoPlay: true,
+            singleItem: true,
+            navigation: false,
+            pagination: false,
+            itemsDesktop: [1500, 1],
+            itemsDesktopSmall: [991, 2],
+            itemsTablet: [543, 1],
+            itemsTabletSmall: [479, 1]
+            // itemsMobile: [479, 2]
+        });
+    }); 
+</script>
