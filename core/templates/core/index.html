@@ -1,11 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
-<!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
+
 <html dir="ltr" lang="en">
-<!--<![endif]-->
 
 <head>
     <meta charset="UTF-8" />
@@ -27,6 +23,8 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/javascript/jquery/magnific/magnific-popup.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/lightbox.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'catalog/view/theme/Mydecor/stylesheet/webdigify/carousel.css' %}" />
@@ -111,7 +109,7 @@
 </head>
 
 
-<body class="common-home   layout-1">
+<body {% block body_attrs %}class="common-home layout-1"{% endblock %}>
     <header>
         <nav class="header_nav">
             <div class="container">
@@ -179,31 +177,7 @@
                         </aside>
                     </div>
         
-                    <!-- Правая часть (корзина и аккаунт) для десктопа -->
-                    <div class="nav2 desktop-only">
-                        <div class="col-sm-3 header_cart">
-                            <div id="cart" class="btn-group btn-block">
-                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..."
-                                    class="btn btn-inverse btn-block btn-lg dropdown-toggle">
-                                    <div class="cart_detail">
-                                        <div class="cart_image"><i class="material-icons-outlined shopping-cart"></i></div>
-                                        <span id="cart-total">
-                                            <span class="cart_heading">Корзина : </span>
-                                            <span class="item-count">0</span>
-                                            <span class="mycart">товаров</span>
-                                            <span class="price"> 0 ₽</span>
-                                        </span>
-                                    </div>
-                                </button>
-        
-                                <ul class="dropdown-menu pull-right cart-menu">
-                                    <li>
-                                        <p class="text-center">Ваша корзина пуста!</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
         
                     <!-- Бургер-меню (видно только на мобильных) -->
                     <div class="mobile-burger mobile-only">
@@ -417,7 +391,6 @@
                 }
         
                 .row {
-                    display: flex;
                     align-items: center;
                     justify-content: space-between;
                     position: relative;
@@ -451,81 +424,247 @@
                 transform: rotate(-45deg) translate(7px, -7px);
             }
         </style>
-        
-        <!-- JavaScript для мобильного меню -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const burgerBtn = document.getElementById('burgerToggle');
-                const mobileMenu = document.getElementById('mobileMenu');
-                const closeBtn = document.getElementById('mobileClose');
-                const subToggles = document.querySelectorAll('.mobile-sub-toggle');
-                const body = document.body;
+<!-- Заказать свой размер -->
+<style>
+.custom-size-btn {
+    background: #2f855a;
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: all 0.22s ease;
+}
+.custom-size-btn:hover {
+    background: #276749;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(47, 133, 90, 0.35);
+}
+.custom-size-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(47, 133, 90, 0.3);
+}
+#customSizeModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#customSizeModal.show {
+    display: block;
+}
+.modal-dialog-custom {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 30px auto;
+    padding: 0 15px;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content-custom {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.modal-header-custom-gr {
+    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal-title-custom {
+    margin: 0;
+    font-size: 1.25rem;
+}
+.btn-close-custom {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.form-group-custom {
+    margin-bottom: 1.2rem;
+}
+.form-label-custom {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+.form-control-custom, .form-control-custom textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.form-control-custom:focus {
+    border-color: #2f855a;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(47, 133, 90, 0.25);
+}
+.modal-footer-custom {
+    padding: 16px 20px;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+.btn-custom {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-secondary-custom {
+    background: #6c757d;
+    color: white;
+    border: none;
+}
+.btn-success-custom {
+    color: white;
+    border: none;
+}
+.form-message-custom {
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+</style>
 
-                // Открыть меню
-                if (burgerBtn) {
-                    burgerBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        burgerBtn.classList.toggle('active');
-                        mobileMenu.classList.toggle('show');
+<!-- Модальное окно для заказа своего размера -->
+<div id="customSizeModal">
+    <div class="modal-dialog-custom">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom-gr">
+                <h5 class="modal-title-custom" id="customSizeModalLabel">
+                    <i class="fas fa-ruler-combined" style="margin-right: 10px;"></i>
+                    Заказать свой размер
+                </h5>
+                <button type="button" class="btn-close-custom" id="closeCustomSizeModal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body-custom" style="padding: 20px;">
+                <form id="customSizeForm">
+                    <input type="hidden" name="product_id" id="customSizeProductId">
+                    <input type="hidden" name="product_name" id="customSizeProductName">
+                    {% csrf_token %}
+                    <div class="form-group-custom">
+                        <label for="customSizeName" class="form-label-custom" data-required="true">Имя</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="form-control-custom" id="customSizeName" name="name" placeholder="Ваше имя" required>
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="customSizePhone" class="form-label-custom" data-required="true">Телефон</label>
+                        <input type="tel" class="form-control-custom" id="customSizePhone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="customSizeComment" class="form-label-custom" data-required="true">Желаемые характеристики / размер</label>
+                        <textarea class="form-control-custom" id="customSizeComment" name="comment" rows="5" placeholder="Напишите, какой размер нужен, цвет, длину, особенности кроя, материал и т.д.&#10;Пример: Размер 52-54, рост 178, длина рукава +3 см, без манжет..."></textarea>
+                    </div>
+                    <div id="customSizeMessage" class="form-message-custom"></div>
+                </form>
+            </div>
+            <div class="modal-footer-custom">
+                <button type="button" class="btn-custom btn-secondary-custom" id="closeCustomSizeFooter">
+                    <i class="fas fa-times" style="margin-right: 8px;"></i>Закрыть
+                </button>
+                <button type="button" class="btn-custom btn-success-custom" id="customSizeSubmit" style="background: linear-gradient(135deg, #2f855a 0%, #276749 100%);">
+                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Отправить заявку
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
-                        if (mobileMenu.classList.contains('show')) {
-                            body.classList.add('menu-open');
-                        } else {
-                            body.classList.remove('menu-open');
-                        }
-                    });
-                }
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // ────────────── Заказ своего размера ──────────────
+    const customSizeModal = document.getElementById('customSizeModal');
+    const customSizeButtons = document.querySelectorAll('.custom-size-btn');
+    const customSizeProductId = document.getElementById('customSizeProductId');
+    const customSizeProductName = document.getElementById('customSizeProductName');
+    const customSizeName = document.getElementById('customSizeName');
+    const customSizePhone = document.getElementById('customSizePhone');
+    const customSizeComment = document.getElementById('customSizeComment');
+    const customSizeMessage = document.getElementById('customSizeMessage');
+    const customSizeSubmit = document.getElementById('customSizeSubmit');
 
-                // Закрыть меню
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', function () {
-                        burgerBtn.classList.remove('active');
-                        mobileMenu.classList.remove('show');
-                        body.classList.remove('menu-open');
-                    });
-                }
+    const closeCustomSizeBtns = [
+        document.getElementById('closeCustomSizeModal'),
+        document.getElementById('closeCustomSizeFooter')
+    ];
 
-                // Закрыть при клике на затемнение
-                body.addEventListener('click', function (e) {
-                    if (body.classList.contains('menu-open')) {
-                        if (!e.target.closest('.mobile-menu') && !e.target.closest('.burger-btn')) {
-                            burgerBtn.classList.remove('active');
-                            mobileMenu.classList.remove('show');
-                            body.classList.remove('menu-open');
-                        }
-                    }
-                });
+    function closeCustomSizeModalFunc() {
+        customSizeModal.classList.remove('show');
+        document.body.style.overflow = '';
+        // Очистка формы (опционально)
+        setTimeout(() => {
+            customSizeName.value = '';
+            customSizePhone.value = '';
+            customSizeComment.value = '';
+            customSizeMessage.innerHTML = '';
+            customSizeMessage.className = 'form-message-custom';
+        }, 300);
+    }
 
-                // Тоггл подкатегорий
-                subToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const categoryId = this.dataset.category;
-                        const subMenu = document.getElementById('subcats-' + categoryId);
-                        const icon = this.querySelector('i');
+    // Открытие модального окна
+    customSizeButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            customSizeProductId.value = this.dataset.productId || '';
+            customSizeProductName.value = this.dataset.productName || '';
+            customSizeModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
 
-                        if (subMenu.style.display === 'none' || subMenu.style.display === '') {
-                            subMenu.style.display = 'block';
-                            icon.classList.remove('fa-chevron-down');
-                            icon.classList.add('fa-chevron-up');
-                        } else {
-                            subMenu.style.display = 'none';
-                            icon.classList.remove('fa-chevron-up');
-                            icon.classList.add('fa-chevron-down');
-                        }
-                    });
-                });
+    // Закрытие по кнопкам
+    closeCustomSizeBtns.forEach(el => {
+        if (el) {
+            el.addEventListener('click', closeCustomSizeModalFunc);
+        }
+    });
 
-                // При изменении размера окна
-                window.addEventListener('resize', function () {
-                    if (window.innerWidth > 767) {
-                        mobileMenu.classList.remove('show');
-                        body.classList.remove('menu-open');
-                        if (burgerBtn) burgerBtn.classList.remove('active');
-                    }
-                });
-            });
-        </script>
+    // Закрытие по клику на фон (backdrop)
+    customSizeModal.addEventListener('click', function (e) {
+        if (e.target === customSizeModal) {
+            closeCustomSizeModalFunc();
+        }
+    });
+
+    // Предотвращаем закрытие при клике внутри контента
+    document.querySelector('.modal-content-custom')?.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+
+    // Маска телефона (если Inputmask подключен)
+    if (typeof $ !== 'undefined' && $.fn.inputmask) {
+        $('#customSizePhone').inputmask({
+            mask: "+7 (999) 999-99-99",
+            placeholder: "+7 (___) ___-__-__",
+            showMaskOnHover: false,
+            clearIncomplete: true,
+            autoUnmask: false
+        });
+    }
+
+    // Здесь может быть код отправки формы customSizeSubmit.addEventListener(...)
+});
+</script>
+
         </div>
     </header>
     <div class="content-top-breadcum">
@@ -572,8 +711,8 @@
                     <div class="form-group-custom">
                         <label for="quickPhoneCustom" class="form-label-custom" data-required="true">Телефон</label>
                         <div class="phone-input-wrapper">
-                            <input type="tel" class="form-control-custom" id="quickPhoneCustom" name="phone"
-                                placeholder="999 999 99 99" required>
+                            <input type="tel" class="form-control-custom" id="quickPhoneCustom" name="phone" required
+                                placeholder="(___) ___-__-__">
                         </div>
                     </div>
 
@@ -927,6 +1066,9 @@
 
     /* Адаптация для мобильных */
     @media (max-width: 576px) {
+        .custom-size-btn {
+            margin-top: 8px;
+        }
         .modal-dialog-custom {
             margin: 1rem auto;
         }
@@ -954,9 +1096,10 @@
     }
 </style>
 
+<!-- JavaScript для модального окна "Быстрый заказ" -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        console.log('Модальное окно инициализировано');
+        console.log('Модальное окно "Быстрый заказ" инициализировано');
 
         // Элементы модалки
         const modal = document.getElementById('quickBuyModalCustom');
@@ -967,28 +1110,39 @@
         const quickForm = document.getElementById('quickBuyFormCustom');
         const messageEl = document.getElementById('quickMessageCustom');
 
-        // Функция открытия модалки
-        window.openQuickBuyModal = function (productId, productName) {
-            console.log('Открываем модалку для товара:', productId, productName);
+        if (!modal || !backdrop) {
+            console.warn('Не найдены основные элементы модалки быстрого заказа');
+            return;
+        }
 
-            // Обновляем название товара в заголовке
+        // Функция открытия модалки (доступна глобально)
+        window.openQuickBuyModal = function (productId, productName) {
+            console.log('Открываем модалку быстрого заказа:', productId, productName);
+
+            // Обновляем заголовок
             const titleElement = document.getElementById('quickBuyModalLabelCustom');
             if (titleElement) {
                 titleElement.innerHTML = '<i class="fas fa-bolt" style="margin-right: 10px;"></i>' +
                     'Быстрый заказ: ' + (productName || 'Товар');
             }
 
-            // Обновляем ID товара в скрытом поле
+            // Устанавливаем ID товара
             const productIdField = document.getElementById('quickProductIdCustom');
             if (productIdField) {
                 productIdField.value = productId || '';
             }
 
-            // Очищаем поля формы
-            document.getElementById('quickNameCustom').value = '';
-            document.getElementById('quickSurnameCustom').value = '';
-            document.getElementById('quickPhoneCustom').value = '';
-            document.getElementById('quickTelegramCustom').value = '';
+            // Очищаем форму
+            const fields = [
+                'quickNameCustom',
+                'quickSurnameCustom',
+                'quickPhoneCustom',
+                'quickTelegramCustom'
+            ];
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
 
             // Очищаем сообщение
             if (messageEl) {
@@ -1001,9 +1155,9 @@
             backdrop.classList.add('show');
             document.body.style.overflow = 'hidden';
 
-            // Фокус на поле имени
+            // Фокус на имя
             setTimeout(() => {
-                document.getElementById('quickNameCustom').focus();
+                document.getElementById('quickNameCustom')?.focus();
             }, 300);
         };
 
@@ -1014,15 +1168,15 @@
             document.body.style.overflow = '';
         }
 
-        // Функция для показа сообщений
+        // Показ сообщения
         function showMessage(text, type) {
             if (messageEl) {
                 messageEl.textContent = text;
-                messageEl.className = 'form-message-custom ' + type;
+                messageEl.className = 'form-message-custom ' + (type || '');
             }
         }
 
-        // Функция для получения CSRF-токена
+        // Получение CSRF-токена
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -1042,7 +1196,6 @@
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         if (closeFooterBtn) closeFooterBtn.addEventListener('click', closeModal);
 
-        // Закрытие по клику на backdrop
         if (backdrop) {
             backdrop.addEventListener('click', closeModal);
         }
@@ -1054,49 +1207,46 @@
             }
         });
 
-        // Обработка отправки формы
+        // Отправка формы
         if (submitBtn && quickForm) {
             submitBtn.addEventListener('click', async function () {
-                console.log('Кнопка отправки нажата');
+                console.log('Кнопка "Отправить заявку" нажата');
 
-                // Валидация на клиенте
-                const name = document.getElementById('quickNameCustom').value.trim();
-                const surname = document.getElementById('quickSurnameCustom').value.trim();
-                const phone = document.getElementById('quickPhoneCustom').value.trim();
-                const telegram = document.getElementById('quickTelegramCustom').value.trim();
-                const productId = document.getElementById('quickProductIdCustom').value;
+                const name = document.getElementById('quickNameCustom')?.value.trim();
+                const surname = document.getElementById('quickSurnameCustom')?.value.trim();
+                const phone = document.getElementById('quickPhoneCustom')?.value.trim();
+                const telegram = document.getElementById('quickTelegramCustom')?.value.trim();
+                const productId = document.getElementById('quickProductIdCustom')?.value;
 
+                // Валидация
                 if (!name) {
                     showMessage('Пожалуйста, укажите ваше имя', 'error');
                     return;
                 }
-
                 if (!phone) {
                     showMessage('Пожалуйста, укажите номер телефона', 'error');
                     return;
                 }
-
                 if (!productId) {
                     showMessage('Ошибка: не указан товар', 'error');
                     return;
                 }
 
-                // Блокируем кнопку
+                // Блокировка кнопки
                 submitBtn.disabled = true;
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i> Отправляем...';
 
-                // Формируем JSON данные
                 const jsonData = {
                     product_id: productId,
                     name: name,
-                    surname: surname,
+                    surname: surname || '',
                     phone: phone,
-                    telegram: telegram
+                    telegram: telegram || ''
                 };
 
-                // Получаем CSRF токен
-                const csrftoken = getCookie('csrftoken') || document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+                const csrftoken = getCookie('csrftoken') ||
+                    document.querySelector('#quickBuyFormCustom input[name="csrfmiddlewaretoken"]')?.value;
 
                 try {
                     const response = await fetch("{% url 'quick_buy' %}", {
@@ -1116,22 +1266,15 @@
                         showMessage(data.message || 'Спасибо! Ваша заявка принята!', 'success');
                         quickForm.reset();
 
-                        // Закрываем модалку через 2 секунды
-                        setTimeout(() => {
-                            closeModal();
-                        }, 2000);
+                        // Закрываем через 2 секунды
+                        setTimeout(closeModal, 2000);
                     } else {
                         showMessage(data.message || 'Ошибка при отправке заявки', 'error');
-
-                        // Разблокируем кнопку
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalText;
                     }
                 } catch (error) {
-                    console.error('Ошибка:', error);
+                    console.error('Ошибка отправки:', error);
                     showMessage('Не удалось отправить заявку. Попробуйте позже.', 'error');
-
-                    // Разблокируем кнопку
+                } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
                 }
@@ -1166,6 +1309,28 @@
     });
 </script>
 
+
+
+<style>
+
+
+.swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.319); /* Черное затемнение */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.swiper-slide .slider-content {
+    z-index: 2;
+}
+</style>
+
 {% block content %}
     <div id="content" class="col-sm-12">
         <div class="content-top">
@@ -1176,24 +1341,24 @@
                         <div class="swiper-wrapper">
                             {% for slide in slides %}
                             <div class="swiper-slide text-center">
-                                <a href="{{ slide.link|default:'#' }}">
                                     <img src="{{ slide.image.url }}" alt="{{ slide.alt_text|default:slide.title }}"
-                                        class="img-responsive" />
-                                </a>
+                                        class="img-responsive"/>
                     
                                 <div class="slider-content">
-                                    <div class="main-carousel-content">
+                                    <div class="main-carousel-content" style="
+        
+                                        padding: 24px 32px;
+                                        display: inline-block;
+                                    ">
                                         {% if slide.description %}
-                                        <div class="slider-description">{{ slide.description }}</div>
+                                        <div class="slider-description myclass">{{ slide.description }}</div>
                                         {% endif %}
                     
                                         {% if slide.title %}
-                                        <div class="slider-title">{{ slide.title }}</div>
+                                        <div class="slider-title" style="color: white;">{{ slide.title }}</div>
                                         {% endif %}
                     
-                                        {% if slide.details %}
-                                        <div class="slider-details">{{ slide.details }}</div>
-                                        {% endif %}
+                                        
                     
                                         <div class="slider-button">
                                             <a href="#trending-products" class="btn btn-primary btn-lg btn-block">
@@ -1213,17 +1378,17 @@
                         </div>
                     
                         <div class="swiper-pagination slideshow0"></div>
-                        <div class="swiper-pager">
+                        <!-- <div class="swiper-pager">
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="swiper-pagination slideshow0"></div>
-                    <div class="swiper-pager">
+                    <!-- <div class="swiper-pager">
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <script>
@@ -1265,134 +1430,96 @@
                             <div class="box">
                                 <div class="box-content">
 
-                                    <!-- <div class="customNavigation">
-                                        <a class="fa prev fa-arrow-left">&nbsp;</a>
-                                        <a class="fa next fa-arrow-right">&nbsp;</a>
-                                    </div> -->
+                                    
                                     
                                     <div class="row cat_prod">
-                                        {% for product in latest_products %} <!-- Или bestseller_products, или special_products -->
+                                        {% for product in latest_products %}
                                         <div class="product-layout product-grid col-lg-3 col-md-4 col-sm-4 col-xs-6">
                                             <div class="product-block product-thumb">
-                                                <div class="product-block-inner">
-                                                    <!-- Изображение товара -->
-                                                    <div class="image">
+                                                <div class="product-block-inner d-flex flex-column h-100">
+                                    
+                                                    <!-- Изображение товара (фиксированный квадрат) -->
+                                                    <div class="image" style="aspect-ratio: 1/1; overflow: hidden;">
                                                         <a href="{% url 'product_detail' product.slug %}">
                                                             {% if product.main_image %}
                                                             <img src="{{ product.main_image.image.url }}" title="{{ product.name }}"
-                                                                alt="{{ product.name }}" class="img-responsive">
+                                                                alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;">
                                                             {% else %}
                                                             <img src="{% static 'image/cache/catalog/placeholder-328x328.jpg' %}" title="{{ product.name }}"
-                                                                alt="{{ product.name }}" class="img-responsive">
+                                                                alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;">
                                                             {% endif %}
                                                         </a>
-                                    
-                                                        <!-- Блок с иконками (сравнение, быстрый просмотр, избранное) -->
-                                                        <div class="product_hover_block">
-                                                            <div class="compare-button offer-btn">
-                                                                <button class="compare_button" type="button" title="Сравнить"
-                                                                    onclick="compare.add('{{ product.id }}');"></button>
-                                                            </div>
-                                                            <div class="quickview-button offer-btn">
-                                                                <a class="quickbox" title="Быстрый просмотр"
-                                                                    href="{% url 'product_quick_view' product.id %}"></a>
-                                                            </div>
-                                                            <div class="wishlist-button offer-btn">
-                                                                <button class="wishlist" type="button" title="В избранное"
-                                                                    onclick="wishlist.add('{{ product.id }}');"></button>
-                                                            </div>
-                                                        </div>
-                                    
-                                                        <!-- Обратный отсчет (если есть) -->
                                                         <div class="countdown"></div>
                                                     </div>
                                     
-                                                    <!-- Детали товара -->
-                                                    <div class="product-details">
-                                                        <div class="caption">
-                                                            <!-- Категория товара -->
+                                                    <!-- Детали товара (flex-колонка, чтобы кнопка была внизу) -->
+                                                    <div class="product-details d-flex flex-column" style="flex: 1;">
+                                                        <div class="caption d-flex flex-column" style="flex: 1;">
+                                    
                                                             {% if product.category %}
-                                                            <span class="product-cat">{{ product.category.name }}</span>
+                                                            <span class="product-cat text-muted small">{{ product.category.name }}</span>
                                                             {% endif %}
                                     
-                                                            
-                                    
-                                                            <!-- Название товара -->
-                                                            <h4>
-                                                                <a href="{% url 'product_detail' product.slug %}">
+                                                            <!-- Название (увеличен размер) -->
+                                                            <h4 class="product-title" >
+                                                                <a href="{% url 'product_detail' product.slug %}" class="text-dark">
                                                                     {{ product.name|truncatechars:40 }}
                                                                 </a>
                                                             </h4>
                                     
-                                                            <!-- Описание (если есть) -->
-                                                            <p class="description">{{ product.description|striptags|truncatechars:100|default:"" }}</p>
+                                                            <!-- Описание (увеличен размер) -->
+                                                            <p class="description d-none d-sm-block" style="
+                                                                color: #6c757d;
+                                                                height: 2em;
+                                                                overflow: hidden;
+                                                                display: -webkit-box;
+                                                                -webkit-line-clamp: 2;
+                                                                -webkit-box-orient: vertical;
+                                                            ">
+                                                                {{ product.description|striptags|truncatechars:100|default:"" }}
+                                                            </p>
                                     
-                                                            <!-- Цена -->
-                                                            <p class="price">
+                                                            <!-- Цена (немного увеличена) -->
+                                                            <p class="price fw-bold mb-2" style="font-size: 1.25rem; color: #2c3e50;">
                                                                 {% if product.tax_price and product.tax_price != product.price %}
-                                                                <span class="price-new">₽{{ product.price }}</span>
-                                                                <span class="price-old">₽{{ product.tax_price }}</span>
+                                                                <span class="price-new text-danger">₽{{ product.price }}</span>
+                                                                <span class="price-old text-muted text-decoration-line-through ms-2">₽{{ product.tax_price
+                                                                    }}</span>
                                                                 {% else %}
                                                                 ₽{{ product.price }}
                                                                 {% endif %}
                                                             </p>
+                                                        </div>
                                     
-                                                            <!-- Кнопка "Купить сейчас" (ВМЕСТО "В корзину") -->
-                                                            <div class="action">
-                                                                {% if product.quantity > 0 and product.is_in_stock %}
-                                                                <button type="button" class="btn btn-primary btn-lg btn-block quick-buy-btn-custom"
-                                                                    data-product-id="{{ product.id }}" data-product-name="{{ product.name|escapejs }}">
-                                                                    Купить сейчас
-                                                                </button>
-                                                                {% else %}
-                                                                <button type="button" class="cart_button out_of_stock" disabled>
-                                                                    Нет в наличии
-                                                                </button>
-                                                                {% endif %}
-                                                            </div>
-                                    
-                                                            <!-- Второй блок с иконками -->
-                                                            <div class="product_hover_block">
-                                                                <div class="compare-button offer-btn">
-                                                                    <button class="compare_button" type="button" title="Сравнить"
-                                                                        onclick="compare.add('{{ product.id }}');"></button>
-                                                                </div>
-                                                                <div class="quickview-button offer-btn">
-                                                                    <a class="quickbox" title="Быстрый просмотр"
-                                                                        href="{% url 'product_quick_view' product.id %}"></a>
-                                                                </div>
-                                                                <div class="wishlist-button offer-btn">
-                                                                    <button class="wishlist" type="button" title="В избранное"
-                                                                        onclick="wishlist.add('{{ product.id }}');"></button>
-                                                                </div>
-                                    
-                                                                <!-- Вторая кнопка "Купить сейчас" (если дублируется в шаблоне) -->
-                                                                <div class="action">
-                                                                    {% if product.quantity > 0 and product.is_in_stock %}
-                                                                    <button type="button" class="btn btn-primary btn-lg btn-block quick-buy-btn-custom"
-                                                                        data-product-id="{{ product.id }}" data-product-name="{{ product.name|escapejs }}">
-                                                                        Купить сейчас
-                                                                    </button>
-                                                                    {% else %}
-                                                                    <button type="button" class="cart_button out_of_stock" disabled>
-                                                                        Нет в наличии
-                                                                    </button>
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
+                                                        <!-- Кнопки (без лишнего margin) -->
+                                                        <div class="action d-flex flex-column gap-2" style="margin-top: 0;">
+                                                            {% if product.quantity > 0 and product.is_in_stock %}
+                                                            <button type="button" class="btn w-100 quick-buy-btn-custom"
+                                                                style="background: linear-gradient(135deg, #eaa466 0%, #a2694b 100%); color: white; border: none; padding: 10px; font-size: 0.95rem; border-radius: 4px;"
+                                                                data-product-id="{{ product.id }}" data-product-name="{{ product.name|escapejs }}">
+                                                                Купить сейчас
+                                                            </button>
+                                                            <button type="button" class="btn btn-success w-100 custom-size-btn"
+                                                                style="background: linear-gradient(135deg, #4ea24b 100%, #a6ea66 0%); color: white; border: none; padding: 10px; font-size: 0.95rem; border-radius: 4px;"
+                                                                data-product-id="{{ product.id }}" data-product-name="{{ product.name|escapejs }}">
+                                                                Заказать свой размер
+                                                            </button>
+                                                            {% else %}
+                                                            <button type="button" class="btn btn-secondary w-100" disabled>
+                                                                Нет в наличии
+                                                            </button>
+                                                            {% endif %}
                                                         </div>
                                                     </div>
+                                    
+                                                    <!-- Второй блок с иконками (скрыт) -->
+                                                    <div class="product_hover_block d-none">
+                                                        <!-- иконки quickview, wishlist, compare — если нужны -->
+                                                    </div>
+                                    
                                                 </div>
                                             </div>
                                         </div>
-                                    
-                                        <!-- Скрипт для отзывов (если нужен) -->
-                                        <script>
-                                            $('.total-review{{ product.id }}').on('click', function () {
-                                                window.location.href = "{% url 'product_detail' product.slug %}?review";
-                                                return false;
-                                            });
-                                        </script>
                                         {% endfor %}
                                     </div>
 
@@ -1406,6 +1533,7 @@
 
                        
                     </div>
+                    
                 </div>
             </div>
             <script type="text/javascript">
@@ -1505,7 +1633,7 @@
             <div id="wdcmsservice" class="bottom-to-top hb-animate-element">
                 <div class="container">
                     <div class="row">
-                        <div class="home-sevices">
+                        <div class="home-sevices" style="border-bottom: none;">
                             <ul class="wd-sevices services-carousel">
                                 <li>
                                     <div class="wd-return wdservice service-info-heading">
@@ -1543,103 +1671,7 @@
                 </div>
             </div>
 
-            <!-- <div class="box special bottom-to-top hb-animate-element">
-                <div class="container">
-                    <div class="row">
-                        <div class="box-heading">Deal Of The Week</div>
-                        <div class="box-desc">Our weekly sale products with best discount and special gift vouchers.
-                        </div>
-
-                        <div class="box-content">
-
-                            <div class="box-product  productbox-grid" id="special-grid">
-                                <div class="product-items">
-                                    <div class="product-block product-thumb transition">
-                                        <div class="product-block-inner">
-                                            <div class="image">
-                                                <a href="index.php%3Froute=product%252Fproduct&amp;product_id=29.html">
-                                                    <img src="{% static 'image/cache/catalog/ty-328x328.jpg' %}"
-                                                        title="Truss Wooden laurentian citrine yellow lounge chair"
-                                                        alt="Truss Wooden laurentian citrine yellow lounge chair"
-                                                        class="img-responsive" /></a>
-
-                                                <span class="special-tag">-357056%</span>
-
-                                                <div class="product_hover_block">
-                                                    <div class="compare-button offer-btn">
-                                                        <button class="compare_button" type="button" title="compare "
-                                                            onclick="compare.add('29 ');"></button>
-                                                    </div>
-                                                    <div class="quickview-button offer-btn">
-                                                        <a class="quickbox" title="Quick View"
-                                                            href="index.php%3Froute=product%252Fquick_view&amp;product_id=29.html"></a>
-                                                    </div>
-                                                    <div class="wishlist-button offer-btn">
-                                                        <button class="wishlist" type="button" title="Add to Wish List "
-                                                            onclick="wishlist.add('29 ');"></button>
-                                                    </div>
-                                                </div>
-
-                                                <div class="countdown">
-                                                </div>
-                                            </div>
-                                            <div class="product-details">
-                                                <div class="caption">
-
-
-                                                    <div class="rating">
-                                                        <span class="fa fa-stack"><i
-                                                                class="fa fa-star fa-stack-2x"></i><i
-                                                                class="fa fa-star-o fa-stack-2x"></i></span>
-                                                        <span class="fa fa-stack"><i
-                                                                class="fa fa-star fa-stack-2x"></i><i
-                                                                class="fa fa-star-o fa-stack-2x"></i></span>
-                                                        <span class="fa fa-stack"><i
-                                                                class="fa fa-star fa-stack-2x"></i><i
-                                                                class="fa fa-star-o fa-stack-2x"></i></span>
-                                                        <span class="fa fa-stack"><i
-                                                                class="fa fa-star fa-stack-2x"></i><i
-                                                                class="fa fa-star-o fa-stack-2x"></i></span>
-                                                        <span class="fa fa-stack"><i
-                                                                class="fa fa-star fa-stack-2x"></i><i
-                                                                class="fa fa-star-o fa-stack-2x"></i></span>
-                                                    </div>
-
-
-                                                    <h4><a
-                                                            href="index.php%3Froute=product%252Fproduct&amp;product_id=29.html">Truss
-                                                            Wooden laurentian citrine yellow lounge chair </a></h4>
-
-
-                                                    <p class="price">
-                                                        <span class="price-new">$1,200,002.00</span> <span
-                                                            class="price-old">$337.99</span>
-                                                        <span class="price-tax">Ex Tax: $1,000,000.00</span>
-                                                    </p>
-
-                                                    <div class="action">
-                                                        <button type="button" class="cart_button"
-                                                            onclick="cart.add('29');" title="Add to Cart">Add to
-                                                            Cart</button>
-                                                    </div>
-
-
-                                                </div>
-
-
-
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+           
             <span class="special_default_width" style="display:none; visibility:hidden"></span>
 
             <script type="text/javascript">
@@ -1666,200 +1698,7 @@ $('.specialcarousel').trigger('owl.prev');
 });	
 </script>
 
-            <!-- <div class="box webdigifyblog bottom-to-top hb-animate-element">
-                <div class="container">
-                    <div class="row">
-                        <div class="box-heading">From The Blogs</div>
-                        <div class="box-desc">Our latest blog from our best collection items. choose your favourite
-                            items.</div>
-
-
-                        <div class="box-content">
-                            <div class="box-product owl-carousel blogcarousel " id="blog-carousel">
-
-                                <div class="blog-item">
-                                    <div class="product-block">
-
-                                        <div class="blog-left">
-                                            <div class="blog-image">
-                                                <img src="{% static 'image/cache/catalog/blog1.jpeg' %}"
-                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
-                                                <div class="post-image-hover"> </div>
-                                                <span class="post_hover">
-                                                    <div class="full-img offer-btn"><a class="icon zoom"
-                                                            title="Click to view Full Image "
-                                                            href="{% static 'image/cache/catalog/blog2.jpeg' %}"
-                                                            data-lightbox="example-set"><i
-                                                                class="fa fa-search-plus"></i> </a></div>
-                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
-                                                            title="Click to view Read More "
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=2.html"><i
-                                                                class="fa fa-link"></i></a></div>
-                                                </span>
-
-
-                                            </div>
-                                            <div class="blog-right">
-                                                <div class="view-blog">
-                                                    <h4><a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=2.html">more
-                                                            recently with desktop publishing software like</a> </h4>
-                                                    <div class="blog-desc"> Duis aute irure dolor in reprehenderit in
-                                                        voluptate velit esse cillum dolore eu fugiat nulla pariatu...
-                                                    </div>
-                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 25 February
-                                                        2022</div>
-                                                    <div class="read-more"> <a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=2.html">
-                                                            <i class="fa fa-link"></i> read more</a> </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="blog-item">
-                                    <div class="product-block">
-
-                                        <div class="blog-left">
-                                            <div class="blog-image">
-                                                <img src="{% static 'image/cache/catalog/_&#32;(3)-1045x750.jpeg' %}"
-                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
-                                                <div class="post-image-hover"> </div>
-                                                <span class="post_hover">
-                                                    <div class="full-img offer-btn"><a class="icon zoom"
-                                                            title="Click to view Full Image "
-                                                            href="{% static 'image/cache/catalog/_&#32;(3)-1045x750.jpeg' %}"
-                                                            data-lightbox="example-set"><i
-                                                                class="fa fa-search-plus"></i> </a></div>
-                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
-                                                            title="Click to view Read More "
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=4.html"><i
-                                                                class="fa fa-link"></i></a></div>
-                                                </span>
-
-
-                                            </div>
-                                            <div class="blog-right">
-                                                <div class="view-blog">
-                                                    <h4><a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=4.html">Many
-                                                            desktop publishing packages and web page editors</a> </h4>
-                                                    <div class="blog-desc"> Ut enim ad minim veniam, quis nostrud
-                                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                        ons... </div>
-                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 17 February
-                                                        2022</div>
-                                                    <div class="read-more"> <a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=4.html">
-                                                            <i class="fa fa-link"></i> read more</a> </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="blog-item">
-                                    <div class="product-block">
-
-                                        <div class="blog-left">
-                                            <div class="blog-image">
-                                                <img src="{% static 'image/cache/catalog/Stainless&#32;steel&#32;restaurant&#32;kitchen&#32;_&#32;Premium&#32;AI-generated&#32;image&#32;(1)-1045x750.jpeg' %}"
-                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
-                                                <div class="post-image-hover"> </div>
-                                                <span class="post_hover">
-                                                    <div class="full-img offer-btn"><a class="icon zoom"
-                                                            title="Click to view Full Image "
-                                                            href="{% static 'image/cache/catalog/Stainless.jpeg' %}"
-                                                            data-lightbox="example-set"><i
-                                                                class="fa fa-search-plus"></i> </a></div>
-                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
-                                                            title="Click to view Read More "
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=1.html"><i
-                                                                class="fa fa-link"></i></a></div>
-                                                </span>
-
-
-                                            </div>
-                                            <div class="blog-right">
-                                                <div class="view-blog">
-                                                    <h4><a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=1.html">All
-                                                            the Lorem Ipsum generators on the Internet tend</a> </h4>
-                                                    <div class="blog-desc"> Link: St. Louis Blues Audio shortcode:
-                                                        “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
-                                                    </div>
-                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 25 January
-                                                        2022</div>
-                                                    <div class="read-more"> <a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=1.html">
-                                                            <i class="fa fa-link"></i> read more</a> </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="blog-item">
-                                    <div class="product-block">
-
-                                        <div class="blog-left">
-                                            <div class="blog-image">
-                                                <img src="{% static 'image/cache/catalog/Restaurant_Freepik_1045x750.jpeg' %}"
-                                                    alt="From The Blogs" title="From The Blogs" class="img-thumbnail" />
-                                                <div class="post-image-hover"> </div>
-                                                <span class="post_hover">
-                                                    <div class="full-img offer-btn"><a class="icon zoom"
-                                                            title="Click to view Full Image "
-                                                            href="{% static 'image/cache/catalog/Restaurant_Freepik_1045x750.jpeg' %}"
-                                                            data-lightbox="example-set"><i
-                                                                class="fa fa-search-plus"></i> </a></div>
-                                                    <div class="read_more offer-btn"><a class="icon readmore_link"
-                                                            title="Click to view Read More "
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=3.html"><i
-                                                                class="fa fa-link"></i></a></div>
-                                                </span>
-
-
-                                            </div>
-                                            <div class="blog-right">
-                                                <div class="view-blog">
-                                                    <h4><a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=3.html">Lorem
-                                                            Ipsum is simply dummy text of the printing</a> </h4>
-                                                    <div class="blog-desc"> Ut enim ad minim veniam, quis nostrud
-                                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                        ons... </div>
-                                                    <div class="date-time"> <i class="fa fa-calendar"></i> 20 January
-                                                        2022</div>
-                                                    <div class="read-more"> <a
-                                                            href="index.php%3Froute=information%252Fblogger&amp;blogger_id=3.html">
-                                                            <i class="fa fa-link"></i> read more</a> </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <span class="blog_default_width" style="display:none; visibility:hidden"></span>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            
 
 
             <script type="text/javascript">
@@ -1878,81 +1717,20 @@ $('.specialcarousel').trigger('owl.prev');
                     });
                 });	
             </script>
-            <div id="carousel-0" class="banners-slider-carousel bottom-to-top hb-animate-element">
-                <div class="container">
-                    <div class="row">
-                        <div class="box-content">
-                            <div class="customNavigation">
-                                <a class="prev fa fa-arrow-left">&nbsp;</a>
-                                <a class="next fa fa-arrow-right">&nbsp;</a>
-                            </div>
-                            <div class="product-carousel" id="module-0-carousel">
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/7-150x150.png' %}"
-                                                    class="img-responsive" alt="Burger King" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/4-150x150.png' %}"
-                                                    class="img-responsive" alt="Dell" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/5-150x150.png' %}"
-                                                    class="img-responsive" alt="Harley Davidson" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/1-150x150.png' %}"
-                                                    class="img-responsive" alt="Dell" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/3-150x150.png' %}"
-                                                    class="img-responsive" alt="Disney" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/6-150x150.png' %}"
-                                                    class="img-responsive" alt="Nintendo" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="product-block">
-                                        <div class="product-block-inner">
-                                            <a href="index.html#"><img src="{% static 'image/cache/catalog/2-150x150.png' %}"
-                                                    class="img-responsive" alt="Starbucks" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <span class="module_default_width" style="display:none; visibility:hidden"></span>
-
+            
         </div>
 
     </div>
+    
+
+        {% endblock %}
+
+    <!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+    <!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+
     <footer>
 
         <div class="footer-container">
@@ -1965,19 +1743,15 @@ $('.specialcarousel').trigger('owl.prev');
                                 <div class="contact-block">
                                     <h5>Контакты</h5>
                                     <ul>
-                                        <li class="item address">
-                                            <i class="fa fa-map-marker"></i>
-                                            <span>Москва, Кожевнический проезд, д. 1<br>бизнес-центр River Place</span>
-                                        </li>
                                         <li class="item phone">
                                             <i class="fa fa-phone"></i>
                                             <span class="contact-inner">
-                                                <a href="tel:+79175492845">+7 (917) 549-28-45</a>
+                                                <a href="tel:+79175492845">+7 (993) 349-28-45</a>
                                             </span>
                                         </li>
                                         <li class="item email">
                                             <i class="fa fa-envelope-o"></i>
-                                            <span>info@nerjarest.ru</span>
+                                            <span>mr.toxa222@mail.ru</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -1989,27 +1763,7 @@ $('.specialcarousel').trigger('owl.prev');
                             </div>
         
                             <!-- Правая колонка с подпиской -->
-                            <aside id="footer-right" class="col-sm-4 column footerright">
-                                <div class="newsletter">
-                                    <div class="news-left">
-                                        <div class="news-title">Получить последние обновления</div>
-                                        <div class="news-des">Вы можете отписаться в любой момент.</div>
-                                    </div>
-                                    <div class="news-right">
-                                        <form method="post">
-                                            <div class="form-group">
-                                                <label class="control-label">Введите свой адрес электронной почты</label>
-                                                <div class="input-news">
-                                                    <input type="email" name="txtemail" id="txtemail" value=""
-                                                        placeholder="Ваш email" class="form-control input-lg" />
-                                                    <button type="submit" class="btn btn-default btn-lg"
-                                                        onclick="return subscribe();">Подписаться</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </aside>
+                            
                         </div>
                     </div>
                 </div>
@@ -2146,6 +1900,106 @@ $('.specialcarousel').trigger('owl.prev');
                     width: 100%;
                 }
             }
+
+            /* Выравнивание карточек по высоте */
+.product-block {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.product-block:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.product-block-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 12px;
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+.btn-success:hover {
+    background-color: #218838;
+}
+.action {
+    margin-top: 0 !important;
+}
+
+/* Оригинальный синий для кнопки "Купить сейчас" */
+.btn-primary-custom {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.btn-primary-custom:hover {
+    background-color: #0056b3;
+}
+
+/* Зеленая кнопка */
+.btn-success-custom {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.btn-success-custom:hover {
+    background-color: #218838;
+}
+
+/* Увеличенный текст */
+.product-title {
+    font-size: 1.5rem !important;
+}
+.description {
+    font-size: 1.1rem !important;
+}
+.price {
+    font-size: 1.25rem !important;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 767px) {
+    .product-title {
+        font-size: 0.9rem !important;
+        height: 2.6em !important;
+    }
+    .price {
+        font-size: 1rem !important;
+    }
+    .btn {
+        font-size: 0.8rem !important;
+        padding: 8px !important;
+    }
+}
         </style>
         </div>
         <div class="bottomfooter">
@@ -2157,14 +2011,7 @@ $('.specialcarousel').trigger('owl.prev');
                             НержаСтиль &copy; 2026</p>
                         <div id="paymentcmsblock" class="paymentcmsblock">
                             <p></p>
-                            <div class="payment-block">
-                                <ul>
-                                    <img src="{% static 'image/catalog/maestro.png' %}" alt="">
-                                    <img src="{% static 'image/catalog/mastercard.png' %}" alt="">
-                                    <img src="{% static 'image/catalog/paypal.png' %}" alt="">
-                                    <img src="{% static 'image/catalog/visa.png' %}" alt="">
-                                </ul>
-                            </div>
+                            
                             <p></p>
                         </div>
 
@@ -2174,125 +2021,98 @@ $('.specialcarousel').trigger('owl.prev');
             </div>
         </div>
 
-    </footer>
+    
     <script type="text/javascript">
 
     </script>
 
 
-    <script><!-
-            var wd_live_search = {
-                selector: '#search input[name=\'search\']',
-                text_no_matches: '',
-                height: '50px'
+    
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerBtn = document.getElementById('burgerToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeBtn = document.getElementById('mobileClose');
+            const body = document.body;
+
+            if (!burgerBtn || !mobileMenu || !closeBtn) {
+                console.warn('Элементы бургер-меню не найдены');
+                return;
             }
 
-            $(document).ready(function() {
-                var html = '';
-                html += '<div class="live-search">';
-                html += '	<ul>';
-                html += '	</ul>';
-                html += '<div class="result-text"></div>';
-                html += '</div>';
+            // Открытие меню
+            burgerBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-                //$(wd_live_search.selector).parent().closest('div').after(html);
-                $(wd_live_search.selector).after(html);
+                burgerBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('show');
 
-                $(wd_live_search.selector).autocomplete({
-                    'source': function(request, response) {
-                        var filter_name = $(wd_live_search.selector).val();
-                        var cat_id = 0;
-                        var module_wd_live_search_min_length = '1';
-                        if (filter_name.length < module_wd_live_search_min_length) {
-                            $('.live-search').css('display','none');
-                             $('body').removeClass('search-open');
+                if (mobileMenu.classList.contains('show')) {
+                    body.classList.add('menu-open');
+                } else {
+                    body.classList.remove('menu-open');
+                }
+            });
+
+            // Закрытие по крестику
+            closeBtn.addEventListener('click', function () {
+                burgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('show');
+                body.classList.remove('menu-open');
+            });
+
+            // Закрытие по клику вне меню
+            document.addEventListener('click', function (e) {
+                if (body.classList.contains('menu-open')) {
+                    if (!e.target.closest('.mobile-menu') && !e.target.closest('.burger-btn')) {
+                        burgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('show');
+                        body.classList.remove('menu-open');
+                    }
+                }
+            });
+
+            // Закрытие по Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+                    burgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('show');
+                    body.classList.remove('menu-open');
+                }
+            });
+
+            // Тоггл подкатегорий
+            const subToggles = document.querySelectorAll('.mobile-sub-toggle');
+            subToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const categoryItem = this.closest('.mobile-category-item');
+                    const subMenu = categoryItem.querySelector('.mobile-subcategories-list');
+                    const icon = this.querySelector('i');
+
+                    if (subMenu) {
+                        if (subMenu.style.display === 'none' || subMenu.style.display === '') {
+                            subMenu.style.display = 'block';
+                            if (icon) {
+                                icon.classList.remove('fa-chevron-down');
+                                icon.classList.add('fa-chevron-up');
+                            }
+                        } else {
+                            subMenu.style.display = 'none';
+                            if (icon) {
+                                icon.classList.remove('fa-chevron-up');
+                                icon.classList.add('fa-chevron-down');
+                            }
                         }
-                        else{
-                            var html = '';
-                            html += '<li style="text-align: center;height:10px;">';
-                            html +=	'<img class="loading" src="image/catalog/loading.gif" />';
-                            html +=	'</li>';
-                            $('.live-search ul').html(html);
-                            $('.live-search').css('display','block');
-                            $('body').addClass('search-open');
-
-                            $.ajax({
-                                url: 'index.php?route=extension/module/wd_live_search&filter_name=' +  encodeURIComponent(filter_name),
-                                dataType: 'json',
-                                success: function(result) {
-                                    var products = result.products;
-                                    $('.live-search ul li').remove();
-                                    $('.result-text').html('');
-                                    if (!$.isEmptyObject(products)) {
-                                        var show_image = 1;
-                                        var show_price = 1;
-                                        var show_description = 1;
-                                        $('.result-text').html('<a href="http://31.128.43.100/index.php?route=product/search&amp;search='+filter_name+'" class="view-all-results">              View all results                   ('+result.total+')</a>');
-
-                                        $.each(products, function(index,product) {
-                                            var html = '';
-
-                                            html += '<li>';
-                                            html += '<a href="' + product.url + '" title="' + product.name + '">';
-                                            if(product.image && show_image){
-                                                html += '	<div class="product-image col-sm-3 col-xs-4"><img alt="' + product.name + '" src="' + product.image + '"></div>';
-                                            }
-                                            html += '<div class="search-description col-sm-9 col-xs-8">';
-                                            html += '	<div class="product-name">' + product.name ;
-                                            if(show_description){
-                                                html += '<p>' + product.extra_info + '</p>';
-                                            }
-                                            html += '</div>';
-                                            if(show_price){
-                                                if (product.special) {
-                                                    html += '	<div class="product-price"><span class="price">' + product.special + '</span><span class="special">' + product.price + '</span></div>';
-                                                } else {
-                                                    html += '	<div class="product-price"><span class="price">' + product.price + '</span></div>';
-                                                }
-                                            }
-                                            html += '</div>';
-                                            html += '<span style="clear:both"></span>';
-                                            html += '</a>';
-                                            html += '</li>';
-                                            $('.live-search ul').append(html);
-                                        });
-                                    } else {
-                                        var html = '';
-                                        html += '<li style="text-align: center;height:10px;">';
-                                        html +=	wd_live_search.text_no_matches;
-                                        html +=	'</li>';
-
-                                        $('.live-search ul').html(html);
-                                    }
-                                    $('.live-search').css('display','block');
-                                    $('body').addClass('search-open');
-                                    return false;
-                                }
-                            });
-                        }
-                    },
-                    'select': function(product) {
-                        $(wd_live_search.selector).val(product.name);
                     }
                 });
-            	
-                $(document).bind( "mouseup touchend", function(e){
-                  var container = $('.live-search');
-                  if (!container.is(e.target) && container.has(e.target).length === 0)
-                  {
-                    container.hide();
-                  }
-                });
             });
-        //--></script>
-
-        {% endblock %}
-
-    <!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
-    <!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+        });
+    </script>
 </body>
 
 </html>
@@ -2329,3 +2149,6 @@ Please donate via PayPal to donate@opencart.com
         });
     }); 
 </script>
+
+
+

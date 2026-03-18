@@ -19,6 +19,78 @@ from .models import (
 
 logger = logging.getLogger(__name__)
 
+@require_POST
+@csrf_exempt
+def custom_size_order(request):
+    """Заявка на индивидуальный размер"""
+    try:
+        body_data = request.body
+        try:
+            data = json.loads(body_data)
+        except json.JSONDecodeError:
+            data = request.POST.dict()
+
+        logger.info(f"Получена заявка на свой размер: {data}")
+
+        # Обязательные поля
+        product_id   = data.get('product_id')
+        name         = data.get('name')
+        phone        = data.get('phone')
+        comment      = data.get('comment', '').strip()
+
+        if not product_id:
+            return JsonResponse({'success': False, 'message': 'Не указан товар'})
+        if not name:
+            return JsonResponse({'success': False, 'message': 'Укажите имя'})
+        if not phone:
+            return JsonResponse({'success': False, 'message': 'Укажите телефон'})
+        if not comment:
+            return JsonResponse({'success': False, 'message': 'Опишите желаемые характеристики'})
+
+        # Получаем название товара (если есть модель)
+        try:
+            product = Product.objects.get(id=product_id)
+            product_name = product.name
+        except (Product.DoesNotExist, ImportError):
+            product_name = f"Товар #{product_id}"
+
+        # Московское время
+        moscow_tz = pytz.timezone('Europe/Moscow')
+        moscow_time = timezone.now().astetimezone(moscow_tz)
+
+        # Формируем красивое сообщение
+        message = f"""
+            🛠 НОВАЯ ЗАЯВКА НА СВОЙ РАЗМЕР
+            👤 Имя: {name}
+            📞 Телефон: {phone}
+            🆔 ID товара: {product_id}
+            📦 Товар: {product_name}
+            📝 Пожелания / размер:
+            {comment}
+            ⏰ Время: {moscow_time.strftime('%d.%m.%Y %H:%M')} (МСК)
+        """.strip()
+
+        # Отправляем в Telegram
+        telegram_result = send_telegram_message(message)
+
+        if telegram_result:
+            return JsonResponse({
+                'success': True,
+                'message': 'Заявка отправлена! Скоро с вами свяжемся.'
+            })
+        else:
+            return JsonResponse({
+                'success': True,
+                'message': 'Заявка принята, но возникла проблема с уведомлением. Мы всё равно свяжемся.'
+            })
+
+    except Exception as e:
+        logger.error(f"Ошибка в custom_size_order: {str(e)}")
+        return JsonResponse({
+            'success': False,
+            'message': 'Произошла ошибка при обработке заявки'
+        }, status=500)
+    
 
 @require_POST
 @csrf_exempt
@@ -225,10 +297,17 @@ def product_detail(request, product_slug):
     # Отзывы
     reviews = product.reviews.filter(is_active=True)
     
+    # ✅ Добавляем категории для меню
+    header_categories = Category.objects.filter(is_active=True).prefetch_related('subcategories')[:10]
+    
     context = {
         'product': product,
         'variants': variants,
         'attributes': attributes,
+        'related_products': related_products,
+        'reviews': reviews,
+        # ✅ Добавлено в контекст
+        'header_categories': header_categories,
     }
     return render(request, 'core/product_detail.html', context)
 

@@ -20,6 +20,8 @@ urlpatterns = [
     path('blog/<int:post_id>/', views.blog_detail, name='blog_detail'),
     
     path('quick-buy/', views.quick_buy, name='quick_buy'),
+    
+    path('custom-size-order/', views.custom_size_order, name='custom_size_order'),
   
     
 ]

@@ -1,0 +1,191 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Virtual Environment
+.virtualenv
+.vscode-server
+.venv
+venv
+env
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+*.pot
+*.pyc
+__pycache__
+*.db
+
+# Database
+
+
+# Secret files
+.secret
+.env
+.credentials
+secrets.py
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+
+# Development
+*.sql
+*.sql.gz
+*.sql.bz2
+*.sql.zip
+*.sql.7z
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Uploads
+uploads/
+media/uploads/
+
+# Static files
+/staticfiles/
+/static_root/
+/collectedstatic/
+
+# Local settings
+settings_local.py
+local_settings.py
+config.local.py
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv
+.env
+virtualenv/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+.coverage.xml
+*.cover
+coverage.xml
+
+# Sphinx
+docs/_build/
+
+# pytest
+.pytest_cache/
+__pytest__.py
+test_results.xml
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Project specific
+/media/
+/static/
+/staticfiles/
+db.sqlite3
+*.log
+local_settings.py
+.env
+
+# Migrations - обычно не игнорируем, но если хочешь
+# core/migrations/*.py
+# !core/migrations/__init__.py
+
+# Secrets
+secrets.json
+.env.local
+.env.production
+.env.development
