@@ -339,3 +339,6 @@ def product_quick_view(request, product_id):
         'image': product.main_image.image.url if product.main_image else '',
     }
     return JsonResponse(data)
+
+def privacy_policy(request):
+    return render(request, 'core/privacy_policy.html')

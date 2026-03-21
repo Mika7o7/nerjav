@@ -2158,14 +2158,13 @@ $('.specialcarousel').trigger('owl.prev');
             <p>
                 Для работы сайта необходимы технические cookies. Продолжая использовать сайт,
                 вы подтверждаете, что ознакомлены с
-                <a href="/privacy-policy" target="_blank">Политикой конфиденциальности</a>.
+                <a href="{% url 'privacy_policy' %}" target="_blank">Политикой конфиденциальности</a>.
                 <br><small>Мы также используем Яндекс.Метрику для анализа посещаемости —
                     вы можете согласиться или отказаться.</small>
             </p>
         </div>
         <div class="cookie-banner-buttons">
-            <button class="btn btn-outline" id="declineAnalytics">Только технические</button>
-            <button class="btn btn-primary" id="acceptAnalytics">Согласен на аналитику</button>
+            <button class="btn btn-outline" id="declineAnalytics">Ознакомлен и согласен</button>
         </div>
     </div>
 </div>

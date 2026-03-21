@@ -18,5 +18,5 @@ urlpatterns = [
     
     path('custom-size-order/', views.custom_size_order, name='custom_size_order'),
   
-    
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
 ]
