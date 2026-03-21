@@ -52,29 +52,30 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'price', 'quantity', 'is_active', 'is_featured']
+    list_display = ['name', 'category', 'price', 'quantity', 'is_in_stock', 'is_active', 'is_featured']
     list_editable = ['price', 'quantity', 'is_active', 'is_featured']
-    list_filter = ['category', 'subcategory', 'brand', 'is_active', 'is_featured']
-    search_fields = ['name', 'sku', 'description']
+    
+    # Убрали brand, subcategory можно оставить если используешь
+    list_filter = ['category', 'subcategory', 'is_active', 'is_featured', 'is_in_stock']
+    
+    # Убрали 'sku' из поиска
+    search_fields = ['name', 'description', 'characteristics']
+    
     prepopulated_fields = {'slug': ('name',)}
-    readonly_fields = ['views_count', 'sold_count', 'created_at', 'updated_at']
+    
+    readonly_fields = ['created_at', 'updated_at', 'is_in_stock']  # is_in_stock можно сделать readonly, если не хочешь менять вручную
+    
     inlines = [ProductImageInline, ProductVariantInline]
+    
     fieldsets = (
         ('Основная информация', {
-            'fields': ('category', 'subcategory', 'brand', 'name', 'slug', 'sku', 'model')
+            'fields': ('category', 'subcategory', 'name', 'slug')
         }),
-        ('Цены и бонусы', {
-            'fields': ('price', 'tax_price', 'reward_points')
+        ('Цена и наличие', {
+            'fields': ('price', 'quantity', 'is_in_stock')
         }),
-        ('Наличие', {
-            'fields': ('quantity', 'is_in_stock')
-        }),
-        ('Описания', {
-            'fields': ('short_description', 'description')
-        }),
-        ('Статистика', {
-            'fields': ('views_count', 'sold_count'),
-            'classes': ('collapse',)
+        ('Характеристики и описание', {
+            'fields': ('characteristics', 'description')
         }),
         ('Настройки', {
             'fields': ('is_active', 'is_featured', 'order')

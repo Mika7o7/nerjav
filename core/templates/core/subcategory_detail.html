@@ -44,50 +44,86 @@
                     <div class="row">
                         <div class="box-heading">Новинки</div>
                         <div class="box-content">
+            
                             <div class="box-product productbox-grid" id="latest-grid">
                                 {% for product in latest_products|slice:":3" %}
                                 <div class="product-items">
-                                    <div class="product-block product-thumb transition">
+                                    <div class="product-block product-thumb transition" style="border: none !important;">
                                         <div class="product-block-inner">
-                                            <!-- Текст слева, картинка справа -->
-                                            <div class="product-details" style="float: left; width: calc(100% - 70px);">
+                                            <div class="image">
+                                                <a href="{% url 'product_detail' product.slug %}">
+                                                    {% if product.main_image %}
+                                                    <img src="{{ product.main_image.image.url }}" title="{{ product.name }}"
+                                                        alt="{{ product.name }}" class="img-responsive" />
+                                                    {% else %}
+                                                    <img src="{% static 'image/cache/catalog/placeholder-80x80.jpg' %}"
+                                                        title="{{ product.name }}" alt="{{ product.name }}"
+                                                        class="img-responsive" />
+                                                    {% endif %}
+                                                </a>
+            
+                                                <div class="product_hover_block">
+                                                    <div class="action">
+                                                        <button type="button" class="cart_button"
+                                                            onclick="cart.add('{{ product.id }}');" title="Add to Cart">
+                                                            <i class="fa fa-shopping-cart" area-hidden="true"></i>
+                                                        </button>
+                                                        <div class="quickview-button">
+                                                            <a class="quickbox" title="Quick View"
+                                                                href="{% url 'product_quick_view' product.id %}">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </div>
+                                                        <button class="wishlist" type="button" title="Add to Wish List"
+                                                            onclick="wishlist.add('{{ product.id }}');">
+                                                            <i class="fa fa-heart"></i>
+                                                        </button>
+                                                        <button class="compare_button" type="button" title="Compare"
+                                                            onclick="compare.add('{{ product.id }}');">
+                                                            <i class="fa fa-exchange"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                            <div class="product-details">
                                                 <div class="caption">
-                                                    <h4 style="margin: 0 0 3px 0; font-size: 13px; font-weight: 500;">
-                                                        <a href="{% url 'product_detail' product.slug %}"
-                                                            style="color: #333; text-decoration: none;">
-                                                            {{ product.name|truncatechars:25 }}
+                                                    <!-- Рейтинг полностью удалён -->
+            
+                                                    <h4>
+                                                        <a href="{% url 'product_detail' product.slug %}">
+                                                            {{ product.name }}
                                                         </a>
                                                     </h4>
-                                                    <p class="price"
-                                                        style="font-size: 14px; font-weight: bold; color: #e74c3c; margin: 0;">
+            
+                                                    <p class="price">
                                                         {{ product.price }} ₽
+                                                        {% if product.tax_price %}
+                                                        <span class="price-tax">Без налога: {{ product.tax_price }} ₽</span>
+                                                        {% endif %}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="image"
-                                                style="width: 60px; height: 60px; float: right; overflow: hidden; border-radius: 4px;">
-                                                <a href="{% url 'product_detail' product.slug %}">
-                                                    {% if product.main_image %}
-                                                    <img src="{{ product.main_image.image.url }}"
-                                                        title="{{ product.name }}" alt="{{ product.name }}"
-                                                        style="width: 100%; height: 100%; object-fit: cover;" />
-                                                    {% else %}
-                                                    <img src="{% static 'image/cache/catalog/placeholder-60x60.jpg' %}"
-                                                        title="{{ product.name }}" alt="{{ product.name }}"
-                                                        style="width: 100%; height: 100%; object-fit: cover;" />
-                                                    {% endif %}
-                                                </a>
-                                            </div>
-                                            <div style="clear: both;"></div>
                                         </div>
                                     </div>
                                 </div>
                                 {% endfor %}
                             </div>
+            
                         </div>
                     </div>
                 </div>
             </div>
+
+            <style>
+                .product-block,
+                .product-items,
+                .product-block-inner {
+                    border: none !important;
+                    outline: none !important;
+                    box-shadow: none !important;
+                }
+            </style>
 
             <!-- Баннер -->
             <div class="swiper-viewport">
@@ -185,16 +221,16 @@
                                     </p>
 
                                     <!-- Кнопки действий -->
-                                    <div class="action d-flex flex-column gap-2" style="margin-top: 10px;">
+                                    <div class="action d-flex flex-column gap-2">
                                         {% if product.quantity > 0 and product.is_in_stock %}
                                         <button type="button" class="btn w-100 quick-buy-btn-custom"
-                                            style="background: linear-gradient(135deg, #eaa466 0%, #a2694b 100%); color: white; border: none; padding: 10px; font-size: 0.95rem; border-radius: 4px;"
+                                            style="background: linear-gradient(135deg, #eaa466 0%, #a2694b 100%); color: white; border: none; padding: 10px; font-size: 0.95rem; border-radius: 4px; margin-top: 8px !important;"
                                             data-product-id="{{ product.id }}"
                                             data-product-name="{{ product.name|escapejs }}">
                                             Купить сейчас
                                         </button>
                                         <button type="button" class="btn btn-success w-100 custom-size-btn"
-                                            style="background: linear-gradient(135deg, #4ea24b 0%, #a6ea66 100%); color: white; border: none; padding: 10px; font-size: 0.95rem; border-radius: 4px;"
+                                            style="background: linear-gradient(135deg, #4ea24b 0%, #a6ea66 100%); color: white; border: none; padding: 10px; font-size: 0.95rem; border-radius: 4px; margin-top: 8px !important;"
                                             data-product-id="{{ product.id }}"
                                             data-product-name="{{ product.name|escapejs }}">
                                             Заказать свой размер
@@ -217,6 +253,7 @@
                 {% endfor %}
             </div>
 
+            
             <!-- Пагинация -->
             <div class="pagination-wrapper">
                 <div class="page-result">
@@ -544,7 +581,7 @@
     }
 
     .action .btn {
-        margin-bottom: 5px;
+        margin-bottom: 0px;
     }
 
     /* Стили для режима списка */
@@ -584,6 +621,24 @@
         width: auto !important;
         min-width: 180px;
     }
+    /* Принудительное отображение кнопок в режиме списка */
+.products-view.list-view .action {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.products-view.list-view .action .btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin: 5px 0 !important;
+}
+
+/* Убедимся, что контейнер с кнопками видим */
+.products-view.list-view .product-details {
+    overflow: visible !important;
+}
 
     /* Адаптация для мобильных */
     @media (max-width: 767px) {

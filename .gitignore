@@ -32,7 +32,7 @@ __pycache__
 *.db
 
 # Database
-
+db.sqlite23
 
 # Secret files
 .secret

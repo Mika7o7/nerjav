@@ -39,7 +39,56 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'core.apps.CoreConfig',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/ckeditor/"   # куда будут сохраняться загруженные файлы
+
+# Настройки CKEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        # Полная панель инструментов
+        'toolbar': 'Full',
+        'toolbar_Full': [
+            ['Source'],  # ← КНОПКА HTML (самая важная!)
+            ['-', 'NewPage', 'Preview', 'Print', '-', 'Templates'],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
+            ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'],
+            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+            '/',
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'],
+            '/',
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Maximize', 'ShowBlocks'],
+        ],
+        
+        # Разрешаем вставку HTML (ключевой параметр)
+        'allowedContent': True,  # Отключает фильтрацию контента
+        
+        # Настройки вставки из Word (сохраняем стили)
+        'pasteFromWordRemoveFontStyles': False,
+        'pasteFromWordRemoveStyles': False,
+        'pasteFromWordPromptCleanup': False,
+        
+        # Размеры
+        'height': 500,
+        'width': '100%',
+        
+        # Дополнительные возможности
+        'extraPlugins': 'pastefromword,image2,justify,font,colorbutton',
+        
+        # Стили для контента в редакторе
+        'contentsCss': [
+            '/static/css/ckeditor_contents.css',
+            'https://fonts.googleapis.com/css?family=Roboto:400,500,700',
+        ],
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

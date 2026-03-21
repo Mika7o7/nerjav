@@ -13,11 +13,6 @@ urlpatterns = [
     path('product/<slug:product_slug>/', views.product_detail, name='product_detail'),
     path('product/quick-view/<int:product_id>/', views.product_quick_view, name='product_quick_view'),
     
-    # Бренды
-    path('brand/<slug:brand_slug>/', views.brand_detail, name='brand_detail'),
-    
-    # Блог
-    path('blog/<int:post_id>/', views.blog_detail, name='blog_detail'),
     
     path('quick-buy/', views.quick_buy, name='quick_buy'),
     

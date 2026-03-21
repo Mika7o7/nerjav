@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     """Основная категория"""
@@ -88,26 +89,43 @@ class Product(models.Model):
     """Товар"""
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', verbose_name="Категория")
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='products', verbose_name="Подкатегория", blank=True, null=True)
-    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, related_name='products', verbose_name="Бренд", blank=True, null=True)
     
+    # Бренд, артикул, модель убираем (можно закомментировать на первое время)
+    # brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, related_name='products', verbose_name="Бренд", blank=True, null=True)
+    # sku = models.CharField("Артикул (SKU)", max_length=100, unique=True)
+    # model = models.CharField("Модель", max_length=200, blank=True)
+
     name = models.CharField("Название товара", max_length=500)
     slug = models.SlugField("URL", max_length=500, unique=True)
-    sku = models.CharField("Артикул (SKU)", max_length=100, unique=True)
-    model = models.CharField("Модель", max_length=200, blank=True)
-    
+
+    # Цену оставляем (основную), цену без налога и бонусные баллы убираем
     price = models.DecimalField("Цена", max_digits=10, decimal_places=2)
-    tax_price = models.DecimalField("Цена без налога", max_digits=10, decimal_places=2, blank=True, null=True)
-    reward_points = models.PositiveIntegerField("Бонусные баллы", default=0)
-    
+    # tax_price = models.DecimalField("Цена без налога", max_digits=10, decimal_places=2, blank=True, null=True)
+    # reward_points = models.PositiveIntegerField("Бонусные баллы", default=0)
+
     quantity = models.PositiveIntegerField("Количество на складе", default=0)
-    is_in_stock = models.BooleanField("В наличии", default=True)
+    is_in_stock = models.BooleanField("В наличии", default=True)   # это поле уже есть и подходит
+
+    # Краткое описание убираем → заменяем на подробные характеристики в одном поле
+    # short_description = models.TextField("Краткое описание", max_length=500, blank=True)
     
-    short_description = models.TextField("Краткое описание", max_length=500, blank=True)
-    description = models.TextField("Полное описание", blank=True)
+    description = RichTextField(
+        verbose_name="Описание",
+        blank=True,
+        config_name='default',
+    )
     
-    views_count = models.PositiveIntegerField("Просмотры", default=0)
-    sold_count = models.PositiveIntegerField("Продано", default=0)
-    
+    # Новое поле для характеристик в удобном для копи-паста виде
+    characteristics = RichTextField(
+        verbose_name="Характеристики",
+        blank=True,
+        config_name='default',
+    )
+
+    # Статистику убираем
+    # views_count = models.PositiveIntegerField("Просмотры", default=0)
+    # sold_count = models.PositiveIntegerField("Продано", default=0)
+
     is_active = models.BooleanField("Активен", default=True)
     is_featured = models.BooleanField("Рекомендуемый", default=False)
     order = models.PositiveIntegerField("Порядок", default=0)
@@ -134,19 +152,6 @@ class Product(models.Model):
     @property
     def main_image(self):
         return self.images.filter(is_main=True).first()
-
-    @property
-    def discount_percent(self):
-        if self.tax_price and self.price and self.tax_price < self.price:
-            return int((1 - self.tax_price / self.price) * 100)
-        return 0
-    
-    @property
-    def average_rating(self):
-        reviews = self.reviews.filter(is_active=True)
-        if reviews:
-            return sum(r.rating for r in reviews) / reviews.count()
-        return 0
 
 
 class ProductImage(models.Model):

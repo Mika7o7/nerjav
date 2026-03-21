@@ -34,55 +34,34 @@
                     <div class="product-detail-left">
 
                         <!-- Название товара -->
-                        <h1 class="product-title">{{ product.name }}</h1>
+                        <h3 style="border-bottom: 1px solid #eaeaea; font-weight: 600;">{{ product.name }}</h3>
 
-                        <!-- ОПИСАНИЕ ПОСЛЕ НАЗВАНИЯ (компактное) -->
+                        <!-- ХАРАКТЕРИСТИКИ -->
+                        <div class="product-characteristics">
+                            <h2>Характеристики</h2> <!-- исправил опечатку <h5арактеристики> → <h2> -->
+                            <div class="rich-content characteristics">
+                                {{ product.characteristics|safe }}
+                            </div>
+                        </div>
+                        
+                        <!-- ПОЛНОЕ ОПИСАНИЕ (теперь тоже как rich-текст) -->
                         {% if product.description %}
-                        <div class="product-description-short" style="
-                            font-size: 1.3rem;
-                            color: #444;
-                            margin: 15px 0 20px;
-                            line-height: 1.6;
-                            padding-left: 18px;
-                            background: #f9f9f9;
-                            padding: 12px 18px;
-                            border-radius: 8px;
-                        ">
-                            {{ product.description }}
+                        <div class="product-description rich-content">
+                            <h2>Описание</h2>
+                            <div style="
+                                font-size: 1.1rem;
+                                color: #333;
+                                line-height: 1.65;
+                                margin: 1.2em 0;
+                            ">
+                                {{ product.description|safe }}
+                            </div>
                         </div>
                         {% endif %}
-
-                        <!-- Характеристики (артикул, материал, размеры) -->
-                        <div class="product-attributes" style="
-                            background: #f8f9fa;
-                            padding: 15px;
-                            border-radius: 8px;
-                            margin-bottom: 20px;
-                        ">
-                            <table style="width: 100%;">
-                                {% if product.sku %}
-                                <tr>
-                                    <td style="padding: 5px 0; width: 120px; font-weight: 600;">Артикул:</td>
-                                    <td style="padding: 5px 0;">{{ product.sku }}</td>
-                                </tr>
-                                {% endif %}
-                                {% if product.material %}
-                                <tr>
-                                    <td style="padding: 5px 0; font-weight: 600;">Материал:</td>
-                                    <td style="padding: 5px 0;">{{ product.material }}</td>
-                                </tr>
-                                {% endif %}
-                                {% if product.dimensions %}
-                                <tr>
-                                    <td style="padding: 5px 0; font-weight: 600;">Размеры:</td>
-                                    <td style="padding: 5px 0;">{{ product.dimensions }}</td>
-                                </tr>
-                                {% endif %}
-                            </table>
-                        </div>
+                        
 
                         <!-- Наличие -->
-                        <div class="stock-status" style="margin-bottom: 15px;">
+                        <!-- <div class="stock-status" style="margin-bottom: 15px;">
                             <span style="
                                 display: inline-block;
                                 padding: 6px 15px;
@@ -98,7 +77,8 @@
                                 ❌ Нет в наличии
                                 {% endif %}
                             </span>
-                        </div>
+                        </div> -->
+                        <br>
 
                         <!-- Цена -->
                         <div class="product-price-block" style="margin-bottom: 20px;">
@@ -119,7 +99,7 @@
                         </div>
 
                         <!-- Атрибуты товара (варианты) -->
-                        {% if attributes %}
+                        <!-- {% if attributes %}
                         <div class="product-options" style="margin-bottom: 20px;">
                             {% for attr_name, attr_values in attributes.items %}
                             <div class="form-group" style="margin-bottom: 15px;">
@@ -145,7 +125,7 @@
                             </div>
                             {% endfor %}
                         </div>
-                        {% endif %}
+                        {% endif %} -->
 
                         <!-- Кнопки действий -->
                         <div class="product-actions"

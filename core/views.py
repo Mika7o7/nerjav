@@ -217,21 +217,34 @@ def index(request):
     """Главная страница"""
     # Получаем категории для меню в шапке
     header_categories = Category.objects.filter(is_active=True).prefetch_related('subcategories')[:10]
-    
+
     context = {
         'slides': Slide.objects.filter(is_active=True).order_by('order'),
         'categories': Category.objects.filter(is_active=True).prefetch_related('products')[:8],
-        'header_categories': header_categories,  # Добавлено!
-        'latest_products': Product.objects.filter(is_active=True)[:10],
-        'bestseller_products': Product.objects.filter(is_active=True, sold_count__gt=0).order_by('-sold_count')[:10],
+        'header_categories': header_categories,
+
+        'latest_products': Product.objects.filter(is_active=True).order_by('-created_at'),
+
+        # Варианты замены для bestseller_products (sold_count больше нет)
+        # Вариант А: самые новые товары (уже есть latest_products)
+        # Вариант Б: товары с наибольшим количеством на складе (quantity)
+        # Вариант В: товары, помеченные как is_featured
+        'bestseller_products': Product.objects.filter(
+            is_active=True,
+            is_featured=True
+        ).order_by('-created_at'),   # ← пример: рекомендуемые товары
+
+        # special_products — раньше использовался tax_price (скидка)
+        # Теперь можно:
+        #   - просто новые товары
+        #   - или товары с is_featured
+        #   - или вообще убрать этот блок
         'special_products': Product.objects.filter(
-            is_active=True, 
-            tax_price__isnull=False,
-            price__gt=F('tax_price')
-        ).order_by('-created_at')[:10],
-        'testimonials': Testimonial.objects.filter(is_active=True)[:4],
-        'brands': Brand.objects.filter(is_active=True)[:7],
-        'blog_posts': BlogPost.objects.filter(is_active=True).order_by('-created_at')[:4],
+            is_active=True,
+            is_featured=True
+        ).order_by('-created_at'),
+
+        
     }
     return render(request, 'core/index.html', context)
 
@@ -271,9 +284,7 @@ def product_detail(request, product_slug):
     """Детальная страница товара"""
     product = get_object_or_404(Product, slug=product_slug, is_active=True)
     
-    # Увеличиваем счетчик просмотров
-    product.views_count += 1
-    product.save(update_fields=['views_count'])
+   
     
     # Получаем варианты товара
     variants = product.variants.filter(is_active=True).prefetch_related('attributes__attribute')
@@ -313,33 +324,6 @@ def product_detail(request, product_slug):
 
     
 
-def blog_detail(request, post_id):
-    """Детальная страница статьи"""
-    post = get_object_or_404(BlogPost, id=post_id, is_active=True)
-    
-    # Увеличиваем счетчик просмотров
-    post.views_count += 1
-    post.save(update_fields=['views_count'])
-    
-    # Похожие статьи
-    related_posts = BlogPost.objects.filter(is_active=True).exclude(id=post.id)[:3]
-    
-    context = {
-        'post': post,
-        'related_posts': related_posts,
-    }
-    return render(request, 'core/blog_detail.html', context)
-
-def brand_detail(request, brand_slug):
-    """Страница бренда"""
-    brand = get_object_or_404(Brand, slug=brand_slug, is_active=True)
-    products = Product.objects.filter(brand=brand, is_active=True)
-    
-    context = {
-        'brand': brand,
-        'products': products,
-    }
-    return render(request, 'core/brand_detail.html', context)
 
 
 # ==================== API / AJAX ====================
