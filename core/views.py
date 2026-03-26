@@ -22,74 +22,89 @@ logger = logging.getLogger(__name__)
 @require_POST
 @csrf_exempt
 def custom_size_order(request):
-    """Заявка на индивидуальный размер"""
+    """Заказ своего размера"""
     try:
+        # Читаем тело запроса
         body_data = request.body
+        logger.info(f"Custom size order raw body: {body_data}")
+        
+        # Парсим JSON
         try:
             data = json.loads(body_data)
-        except json.JSONDecodeError:
-            data = request.POST.dict()
-
-        logger.info(f"Получена заявка на свой размер: {data}")
-
-        # Обязательные поля
-        product_id   = data.get('product_id')
-        name         = data.get('name')
-        phone        = data.get('phone')
-        comment      = data.get('comment', '').strip()
-
-        if not product_id:
-            return JsonResponse({'success': False, 'message': 'Не указан товар'})
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decode error: {e}")
+            return JsonResponse({
+                'success': False,
+                'message': 'Неверный формат данных'
+            })
+        
+        logger.info(f"Custom size order data: {data}")
+        
+        # Получаем данные
+        product_id = data.get('product_id')
+        product_name = data.get('product_name', '')
+        name = data.get('name', '').strip()
+        phone = data.get('phone', '').strip()
+        comment = data.get('comment', '').strip()
+        
+        # Валидация
         if not name:
-            return JsonResponse({'success': False, 'message': 'Укажите имя'})
+            return JsonResponse({
+                'success': False,
+                'message': 'Укажите ваше имя'
+            })
+        
         if not phone:
-            return JsonResponse({'success': False, 'message': 'Укажите телефон'})
+            return JsonResponse({
+                'success': False,
+                'message': 'Укажите номер телефона'
+            })
+        
         if not comment:
-            return JsonResponse({'success': False, 'message': 'Опишите желаемые характеристики'})
-
-        # Получаем название товара (если есть модель)
-        try:
-            product = Product.objects.get(id=product_id)
-            product_name = product.name
-        except (Product.DoesNotExist, ImportError):
-            product_name = f"Товар #{product_id}"
-
-        # Московское время
+            return JsonResponse({
+                'success': False,
+                'message': 'Опишите желаемый размер или характеристики'
+            })
+        
+        # Получаем московское время
         moscow_tz = pytz.timezone('Europe/Moscow')
-        moscow_time = timezone.now().astetimezone(moscow_tz)
-
-        # Формируем красивое сообщение
+        moscow_time = timezone.now().astimezone(moscow_tz)
+        
+        # Формируем сообщение для Telegram
         message = f"""
-            🛠 НОВАЯ ЗАЯВКА НА СВОЙ РАЗМЕР
-            👤 Имя: {name}
-            📞 Телефон: {phone}
-            🆔 ID товара: {product_id}
-            📦 Товар: {product_name}
-            📝 Пожелания / размер:
-            {comment}
-            ⏰ Время: {moscow_time.strftime('%d.%m.%Y %H:%M')} (МСК)
-        """.strip()
+🔔 <b>ЗАКАЗ СВОЕГО РАЗМЕРА</b>
 
+👤 <b>Имя:</b> {name}
+📞 <b>Телефон:</b> {phone}
+🆔 <b>ID товара:</b> {product_id}
+📦 <b>Товар:</b> {product_name}
+📏 <b>Желаемые характеристики/размер:</b>
+{comment}
+
+⏰ <b>Время:</b> {moscow_time.strftime('%d.%m.%Y %H:%M')} (МСК)
+        """
+        
         # Отправляем в Telegram
-        telegram_result = send_telegram_message(message)
-
-        if telegram_result:
-            return JsonResponse({
-                'success': True,
-                'message': 'Заявка отправлена! Скоро с вами свяжемся.'
-            })
-        else:
-            return JsonResponse({
-                'success': True,
-                'message': 'Заявка принята, но возникла проблема с уведомлением. Мы всё равно свяжемся.'
-            })
-
+        try:
+            send_telegram_message(message)
+        except Exception as e:
+            logger.error(f"Telegram send error: {e}")
+        
+        
+        return JsonResponse({
+            'success': True,
+            'message': f'Спасибо, {name}! Ваша заявка на индивидуальный размер принята. Мы свяжемся с вами в ближайшее время для уточнения деталей.'
+        })
+        
     except Exception as e:
         logger.error(f"Ошибка в custom_size_order: {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+        
         return JsonResponse({
             'success': False,
-            'message': 'Произошла ошибка при обработке заявки'
-        }, status=500)
+            'message': 'Произошла ошибка при обработке заказа'
+        })
     
 
 @require_POST

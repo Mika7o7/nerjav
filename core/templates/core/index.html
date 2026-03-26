@@ -7,7 +7,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>NerjaRest - НержаСтиль</title>
+    <title>Nerjarest</title>
+    <meta name="description"
+        content="✅ Интернет-магазин Nerjarest: нержавеющее оборудование высокого качества. Трубы, фитинги, крепеж, емкости из нержавейки. ☎️ Доставка по всей России. Скидки оптовым покупателям. Заходите!">
+    <meta name="keywords"
+        content="нержавеющее оборудование, купить нержавейку, трубы нержавеющие, фитинги из нержавейки, крепеж нержавейка, емкости нержавеющие, оборудование из нержавеющей стали, пищевая нержавейка, Nerjarest, нержавейка оптом, нержавеющие материалы, сортовой прокат нержавейка">
     <base href="" />
     <meta name="description" content="My Store" />
     <script src="{% static 'catalog/view/javascript/jquery/jquery-2.1.1.min.js' %}"></script>
@@ -591,78 +595,200 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // ────────────── Заказ своего размера ──────────────
-    const customSizeModal = document.getElementById('customSizeModal');
-    const customSizeButtons = document.querySelectorAll('.custom-size-btn');
-    const customSizeProductId = document.getElementById('customSizeProductId');
-    const customSizeProductName = document.getElementById('customSizeProductName');
-    const customSizeName = document.getElementById('customSizeName');
-    const customSizePhone = document.getElementById('customSizePhone');
-    const customSizeComment = document.getElementById('customSizeComment');
-    const customSizeMessage = document.getElementById('customSizeMessage');
-    const customSizeSubmit = document.getElementById('customSizeSubmit');
+    document.addEventListener('DOMContentLoaded', function () {
+        // ────────────── Заказ своего размера ──────────────
+        const customSizeModal = document.getElementById('customSizeModal');
+        const customSizeButtons = document.querySelectorAll('.custom-size-btn');
+        const customSizeProductId = document.getElementById('customSizeProductId');
+        const customSizeProductName = document.getElementById('customSizeProductName');
+        const customSizeName = document.getElementById('customSizeName');
+        const customSizePhone = document.getElementById('customSizePhone');
+        const customSizeComment = document.getElementById('customSizeComment');
+        const customSizeMessage = document.getElementById('customSizeMessage');
+        const customSizeSubmit = document.getElementById('customSizeSubmit');
 
-    const closeCustomSizeBtns = [
-        document.getElementById('closeCustomSizeModal'),
-        document.getElementById('closeCustomSizeFooter')
-    ];
+        const closeCustomSizeBtns = [
+            document.getElementById('closeCustomSizeModal'),
+            document.getElementById('closeCustomSizeFooter')
+        ];
 
-    function closeCustomSizeModalFunc() {
-        customSizeModal.classList.remove('show');
-        document.body.style.overflow = '';
-        // Очистка формы (опционально)
-        setTimeout(() => {
-            customSizeName.value = '';
-            customSizePhone.value = '';
-            customSizeComment.value = '';
-            customSizeMessage.innerHTML = '';
-            customSizeMessage.className = 'form-message-custom';
-        }, 300);
-    }
+        function closeCustomSizeModalFunc() {
+            customSizeModal.classList.remove('show');
+            document.body.style.overflow = '';
+            // Очистка формы (опционально)
+            setTimeout(() => {
+                customSizeName.value = '';
+                customSizePhone.value = '';
+                customSizeComment.value = '';
+                customSizeMessage.innerHTML = '';
+                customSizeMessage.className = 'form-message-custom';
+            }, 300);
+        }
 
-    // Открытие модального окна
-    customSizeButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            customSizeProductId.value = this.dataset.productId || '';
-            customSizeProductName.value = this.dataset.productName || '';
-            customSizeModal.classList.add('show');
-            document.body.style.overflow = 'hidden';
+        // Открытие модального окна
+        customSizeButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                customSizeProductId.value = this.dataset.productId || '';
+                customSizeProductName.value = this.dataset.productName || '';
+                customSizeModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
         });
-    });
 
-    // Закрытие по кнопкам
-    closeCustomSizeBtns.forEach(el => {
-        if (el) {
-            el.addEventListener('click', closeCustomSizeModalFunc);
+        // Закрытие по кнопкам
+        closeCustomSizeBtns.forEach(el => {
+            if (el) {
+                el.addEventListener('click', closeCustomSizeModalFunc);
+            }
+        });
+
+        // Закрытие по клику на фон (backdrop)
+        customSizeModal.addEventListener('click', function (e) {
+            if (e.target === customSizeModal) {
+                closeCustomSizeModalFunc();
+            }
+        });
+
+        // Предотвращаем закрытие при клике внутри контента
+        document.querySelector('.modal-content-custom')?.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Маска телефона (если Inputmask подключен)
+        if (typeof $ !== 'undefined' && $.fn.inputmask) {
+            $('#customSizePhone').inputmask({
+                mask: "+7 (999) 999-99-99",
+                placeholder: "+7 (___) ___-__-__",
+                showMaskOnHover: false,
+                clearIncomplete: true,
+                autoUnmask: false
+            });
+        }
+
+        // ────────────── ОТПРАВКА ФОРМЫ "ЗАКАЗ СВОЕГО РАЗМЕРА" ──────────────
+        if (customSizeSubmit) {
+            customSizeSubmit.addEventListener('click', async function () {
+                console.log('Кнопка "Отправить заявку" (свой размер) нажата');
+
+                // Получаем данные формы
+                const productId = customSizeProductId?.value;
+                const productName = customSizeProductName?.value;
+                const name = customSizeName?.value.trim();
+                const phone = customSizePhone?.value.trim();
+                const comment = customSizeComment?.value.trim();
+
+                console.log('Данные формы:', { productId, productName, name, phone, comment });
+
+                // Валидация
+                if (!name) {
+                    showCustomSizeMessage('Пожалуйста, укажите ваше имя', 'error');
+                    return;
+                }
+                if (!phone) {
+                    showCustomSizeMessage('Пожалуйста, укажите номер телефона', 'error');
+                    return;
+                }
+                if (!comment) {
+                    showCustomSizeMessage('Пожалуйста, опишите желаемый размер или характеристики', 'error');
+                    return;
+                }
+                if (!productId) {
+                    showCustomSizeMessage('Ошибка: не указан товар', 'error');
+                    return;
+                }
+
+                // Блокируем кнопку
+                customSizeSubmit.disabled = true;
+                const originalText = customSizeSubmit.innerHTML;
+                customSizeSubmit.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i> Отправляем...';
+
+                // Формируем данные для отправки
+                const jsonData = {
+                    product_id: productId,
+                    product_name: productName,
+                    name: name,
+                    phone: phone,
+                    comment: comment
+                };
+
+                // Получаем CSRF токен
+                let csrftoken = getCookie('csrftoken');
+                if (!csrftoken) {
+                    csrftoken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+                }
+
+                try {
+                    // Отправляем запрос
+                    const response = await fetch("/custom-size-order/", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrftoken,
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(jsonData)
+                    });
+
+                    console.log('Статус ответа:', response.status);
+                    const data = await response.json();
+                    console.log('Ответ сервера:', data);
+
+                    if (data.success) {
+                        showCustomSizeMessage(data.message || 'Спасибо! Ваша заявка принята! Мы свяжемся с вами.', 'success');
+
+                        // Очищаем форму
+                        customSizeName.value = '';
+                        customSizePhone.value = '';
+                        customSizeComment.value = '';
+
+                        // Закрываем модалку через 2 секунды
+                        setTimeout(closeCustomSizeModalFunc, 2000);
+                    } else {
+                        showCustomSizeMessage(data.message || 'Ошибка при отправке заявки', 'error');
+                    }
+                } catch (error) {
+                    console.error('Ошибка отправки:', error);
+                    showCustomSizeMessage('Не удалось отправить заявку. Проверьте соединение.', 'error');
+                } finally {
+                    // Разблокируем кнопку
+                    customSizeSubmit.disabled = false;
+                    customSizeSubmit.innerHTML = originalText;
+                }
+            });
+        }
+
+        // Функция для отображения сообщения в модалке
+        function showCustomSizeMessage(text, type) {
+            if (customSizeMessage) {
+                customSizeMessage.textContent = text;
+                customSizeMessage.className = 'form-message-custom ' + (type || '');
+
+                // Автоматически скрываем сообщение через 5 секунд
+                setTimeout(() => {
+                    if (customSizeMessage) {
+                        customSizeMessage.textContent = '';
+                        customSizeMessage.className = 'form-message-custom';
+                    }
+                }, 5000);
+            }
+        }
+
+        // Функция для получения CSRF токена из cookie
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
         }
     });
-
-    // Закрытие по клику на фон (backdrop)
-    customSizeModal.addEventListener('click', function (e) {
-        if (e.target === customSizeModal) {
-            closeCustomSizeModalFunc();
-        }
-    });
-
-    // Предотвращаем закрытие при клике внутри контента
-    document.querySelector('.modal-content-custom')?.addEventListener('click', function (e) {
-        e.stopPropagation();
-    });
-
-    // Маска телефона (если Inputmask подключен)
-    if (typeof $ !== 'undefined' && $.fn.inputmask) {
-        $('#customSizePhone').inputmask({
-            mask: "+7 (999) 999-99-99",
-            placeholder: "+7 (___) ___-__-__",
-            showMaskOnHover: false,
-            clearIncomplete: true,
-            autoUnmask: false
-        });
-    }
-
-    // Здесь может быть код отправки формы customSizeSubmit.addEventListener(...)
-});
 </script>
 
         </div>
